@@ -1,0 +1,938 @@
+[
+  {
+    "id": "s_X-not-Y_cont_trace_01_2253",
+    "record_id": "trace_01",
+    "text": "because claims about language performance should be verifiable by anyone, not asserted by the vendor.",
+    "start": 2253,
+    "end": 2354,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_02_555",
+    "record_id": "trace_02",
+    "text": "Gooey.AI treats sovereignty as an architectural property rather than a compliance checkbox.",
+    "start": 555,
+    "end": 646,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_02_1868",
+    "record_id": "trace_02",
+    "text": "Sovereignty, in the end, is not a promise a vendor makes \u2014 it is a property a customer can inspect, verify and, if necessary, exercise without permission.",
+    "start": 1868,
+    "end": 2022,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_03_733",
+    "record_id": "trace_03",
+    "text": "assembled and edited in plain language rather than code",
+    "start": 733,
+    "end": 788,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_03_790",
+    "record_id": "trace_03",
+    "text": "Because a workflow is a small artefact rather than a codebase",
+    "start": 790,
+    "end": 851,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_03_1277",
+    "record_id": "trace_03",
+    "text": "This is why we treat low-code not merely as a usability feature but as a distribution strategy for innovation.",
+    "start": 1277,
+    "end": 1387,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_05_1547",
+    "record_id": "trace_05",
+    "text": "so results speak in the language of the mission rather than the language of machine learning.",
+    "start": 1547,
+    "end": 1640,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_05_1299",
+    "record_id": "trace_05",
+    "text": "Constant AI advances become measurable business improvement rather than undirected churn.",
+    "start": 1299,
+    "end": 1388,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_06_1430",
+    "record_id": "trace_06",
+    "text": "The output is not only critique but artefact",
+    "start": 1430,
+    "end": 1474,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_06_1881",
+    "record_id": "trace_06",
+    "text": "must be examined empirically, by the people affected, rather than assumed from a vendor's benchmark.",
+    "start": 1881,
+    "end": 1981,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_07_1327",
+    "record_id": "trace_07",
+    "text": "so a solution proven in one context becomes a starting point in another rather than a rebuild.",
+    "start": 1327,
+    "end": 1421,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_07_1835",
+    "record_id": "trace_07",
+    "text": "for customers' benefit rather than ours.",
+    "start": 1835,
+    "end": 1875,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_08_743",
+    "record_id": "trace_08",
+    "text": "He remains an active builder on the platform rather than an absent executive",
+    "start": 743,
+    "end": 819,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_08_2077",
+    "record_id": "trace_08",
+    "text": "Proximity to users is not a value statement here. It is a working method.",
+    "start": 2077,
+    "end": 2150,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_09_266",
+    "record_id": "trace_09",
+    "text": "an answer this week, not next season",
+    "start": 266,
+    "end": 302,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_09_926",
+    "record_id": "trace_09",
+    "text": "deployments that reach farmers through the channels they already use rather than an app they must be persuaded to install.",
+    "start": 926,
+    "end": 1048,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_09_1304",
+    "record_id": "trace_09",
+    "text": "settled by evidence on the actual task \u2014 is this advice correct, in this language, for this crop and region \u2014 rather than by general benchmark scores.",
+    "start": 1304,
+    "end": 1454,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_X-not-Y_cont_trace_10_1223",
+    "record_id": "trace_10",
+    "text": "rather than building one bespoke system, partners create workflows others in their field can find, fork and adapt.",
+    "start": 1223,
+    "end": 1337,
+    "mode": "X-not-Y contrastive framing (AI writing tell)",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_redundant_trace_02_1031",
+    "record_id": "trace_02",
+    "text": "Hot-swappability is what makes independence real: no vendor lock-in",
+    "start": 1031,
+    "end": 1098,
+    "mode": "Redundant / circular phrasing",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_redundant_trace_07_621",
+    "record_id": "trace_07",
+    "text": "we are currently in certification with the Digital Public Goods Alliance to be recognised as a Digital Public Good",
+    "start": 621,
+    "end": 735,
+    "mode": "Redundant / circular phrasing",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_redundant_trace_07_1470",
+    "record_id": "trace_07",
+    "text": "every prompt, model, retrieval database and cost is visible. Nothing about how an answer was produced, or what it cost, is hidden behind an abstraction we control.",
+    "start": 1470,
+    "end": 1633,
+    "mode": "Redundant / circular phrasing",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_01_541",
+    "record_id": "trace_01",
+    "text": "Because our platform aggregates both leading private models \u2014 OpenAI, Google, Anthropic \u2014 and the strongest open-weight alternatives from India, Europe and China, including Mistral, SwissAI, Qwen, Kimi and DeepSeek, we can benchmark competing model families on an identical task, in an identical language, against an identical rubric.",
+    "start": 541,
+    "end": 875,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_01_1429",
+    "record_id": "trace_01",
+    "text": "Evaluating at workflow level produces findings that translate directly into deployment decisions: which model, in which language, for which use case, at what cost, and under which sovereignty constraints.",
+    "start": 1429,
+    "end": 1633,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_02_678",
+    "record_id": "trace_02",
+    "text": "We reduce AI systems to workflows \u2014 human-readable chains of prompts, abstracted model calls, retrieval documents and tool calls \u2014 so that the model itself becomes a swappable component.",
+    "start": 678,
+    "end": 864,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_02_1031",
+    "record_id": "trace_02",
+    "text": "Hot-swappability is what makes independence real: no vendor lock-in, and a genuine option to select whichever model is faster, cheaper, cleaner or more sovereign this month.",
+    "start": 1031,
+    "end": 1204,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_03_411",
+    "record_id": "trace_03",
+    "text": "Our platform lowers the barrier far enough that non-coders can vibe-code working agents \u2014 moving from intent to a testable, deployed prototype without waiting for an engineering sprint.",
+    "start": 411,
+    "end": 596,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_03_597",
+    "record_id": "trace_03",
+    "text": "The mechanism is the AI workflow: a small, human-readable chain of prompts, abstracted model calls, retrieval documents and tool calls, assembled and edited in plain language rather than code.",
+    "start": 597,
+    "end": 789,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_03_1435",
+    "record_id": "trace_03",
+    "text": "A workflow can ship instantly to the channels the Global South actually uses \u2014 WhatsApp, Telegram, Facebook, SMS, voice and web \u2014 so usability testing happens with real users, in real languages, in days rather than months.",
+    "start": 1435,
+    "end": 1657,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_06_178",
+    "record_id": "trace_06",
+    "text": "Ask a generative image model for \"a doctor,\" \"a wedding,\" or \"a family,\" and it will answer with striking confidence \u2014 and a narrow imagination.",
+    "start": 178,
+    "end": 322,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_06_1785",
+    "record_id": "trace_06",
+    "text": "Both proceed from the same conviction \u2014 that the performance of AI in underrepresented contexts must be examined empirically, by the people affected, rather than assumed from a vendor's benchmark.",
+    "start": 1785,
+    "end": 1981,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_07_871",
+    "record_id": "trace_07",
+    "text": "The first is the codebase \u2014 inspectable, deployable and forkable, which means an organisation that adopts us cannot be locked out of what it has built.",
+    "start": 871,
+    "end": 1022,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_07_1683",
+    "record_id": "trace_07",
+    "text": "Through our open-source vision and AI workflow standards work, we want the workflow layer \u2014 and ultimately the runtime itself \u2014 to become commoditised, for customers' benefit rather than ours.",
+    "start": 1683,
+    "end": 1875,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_07_2016",
+    "record_id": "trace_07",
+    "text": "This one carries the licensing and public-goods argument; the orchestration essay carries commoditisation, and the sovereign-stack essay carries lock-out risk \u2014 so the three overlap without repeating.",
+    "start": 2016,
+    "end": 2216,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_08_1000",
+    "record_id": "trace_08",
+    "text": "A design researcher and previously COO at Dara.network and Founder Director of Jaaga and BeFantastic, she brings the practice that makes initiatives like Beyond Bias possible \u2014 the conviction that artists and communities should interrogate AI systems, not merely receive them.",
+    "start": 1000,
+    "end": 1276,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_08_1278",
+    "record_id": "trace_08",
+    "text": "Dev Aggarwal, Co-founder and CTO, leads the engineering behind the orchestration layer: the abstraction that turns model calls, retrieval and tool use into human-readable recipes.",
+    "start": 1278,
+    "end": 1457,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_08_1906",
+    "record_id": "trace_08",
+    "text": "It is also why the founders spend time where the work happens \u2014 travelling together to Kenya to sit with the organisations turning ambitious ideas into deployed services.",
+    "start": 1906,
+    "end": 2076,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_08_2372",
+    "record_id": "trace_08",
+    "text": "Two caveats: I had nothing on the team in our internal materials, so this is assembled from public pages \u2014 please check titles and Dev's background, which was thin online.",
+    "start": 2372,
+    "end": 2543,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_09_839",
+    "record_id": "trace_09",
+    "text": "We are also the AI platform behind Opportunity.org and Safaricom's DigiFarm in Kenya \u2014 deployments that reach farmers through the channels they already use rather than an app they must be persuaded to install.",
+    "start": 839,
+    "end": 1048,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_09_1274",
+    "record_id": "trace_09",
+    "text": "This means model selection is settled by evidence on the actual task \u2014 is this advice correct, in this language, for this crop and region \u2014 rather than by general benchmark scores.",
+    "start": 1274,
+    "end": 1454,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_10_44",
+    "record_id": "trace_10",
+    "text": "Agriculture taught us a method rather than a domain: build excellent public workflows with partners who bring grounded scenarios, evaluate against golden datasets in the languages that matter, ship to the channels people already use, and measure whether anything actually improved.",
+    "start": 44,
+    "end": 325,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_10_1431",
+    "record_id": "trace_10",
+    "text": "Professors want to bring advanced AI tools to their students; IT heads want a simple, fixed-cost option that avoids on-premise complexity; students arrive because their institution grants them credits, and can buy more if they want to keep building.",
+    "start": 1431,
+    "end": 1680,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_runon_trace_10_2169",
+    "record_id": "trace_10",
+    "text": "One flag before you use these: the team essay is the weakest of the ten, because it was assembled from public web sources rather than internal material \u2014 titles and Dev's background are worth verifying.",
+    "start": 2169,
+    "end": 2371,
+    "mode": "Run-on / overlong sentences",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_01_603",
+    "record_id": "trace_01",
+    "text": "OpenAI, Google, Anthropic \u2014 and the strongest open-weight alternatives from India, Europe and China, including Mistral, SwissAI, Qwen, Kimi and DeepSeek",
+    "start": 603,
+    "end": 755,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_01_1527",
+    "record_id": "trace_01",
+    "text": "which model, in which language, for which use case, at what cost, and under which sovereignty constraints",
+    "start": 1527,
+    "end": 1632,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_01_1778",
+    "record_id": "trace_01",
+    "text": "through WhatsApp, Telegram, SMS, voice and web",
+    "start": 1778,
+    "end": 1824,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_01_2072",
+    "record_id": "trace_01",
+    "text": "Every prompt, model version, corpus and cost",
+    "start": 2072,
+    "end": 2116,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_02_714",
+    "record_id": "trace_02",
+    "text": "human-readable chains of prompts, abstracted model calls, retrieval documents and tool calls",
+    "start": 714,
+    "end": 806,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_02_903",
+    "record_id": "trace_02",
+    "text": "OpenAI, Google or Anthropic today, and on Mistral, SwissAI, Qwen, Kimi or DeepSeek tomorrow",
+    "start": 903,
+    "end": 994,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_02_1131",
+    "record_id": "trace_02",
+    "text": "whichever model is faster, cheaper, cleaner or more sovereign",
+    "start": 1131,
+    "end": 1192,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_02_1807",
+    "record_id": "trace_02",
+    "text": "Every prompt, model, retrieval database and cost is visible",
+    "start": 1807,
+    "end": 1866,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_03_631",
+    "record_id": "trace_03",
+    "text": "a small, human-readable chain of prompts, abstracted model calls, retrieval documents and tool calls",
+    "start": 631,
+    "end": 731,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_03_853",
+    "record_id": "trace_03",
+    "text": "it can be read, understood, forked and improved",
+    "start": 853,
+    "end": 900,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_03_1498",
+    "record_id": "trace_03",
+    "text": "actually uses \u2014 WhatsApp, Telegram, Facebook, SMS, voice and web",
+    "start": 1498,
+    "end": 1562,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_04_1805",
+    "record_id": "trace_04",
+    "text": "Every prompt, model, retrieval database and cost stays visible",
+    "start": 1805,
+    "end": 1867,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_05_1840",
+    "record_id": "trace_05",
+    "text": "prototype, test with real users, measure, iterate",
+    "start": 1840,
+    "end": 1889,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_05_1685",
+    "record_id": "trace_05",
+    "text": "every prompt, model, retrieval database and cost is visible",
+    "start": 1685,
+    "end": 1744,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_05_2036",
+    "record_id": "trace_05",
+    "text": "low-resource language evaluation, sovereign stack, low-code, orchestration/vendor-agnosticism, and M&E",
+    "start": 2036,
+    "end": 2138,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_07_1470",
+    "record_id": "trace_07",
+    "text": "every prompt, model, retrieval database and cost is visible",
+    "start": 1470,
+    "end": 1529,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_09_123",
+    "record_id": "trace_09",
+    "text": "She has a question, a feature phone, patchy connectivity, and a language that appears nowhere near the top of any model leaderboard",
+    "start": 123,
+    "end": 254,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_09_423",
+    "record_id": "trace_09",
+    "text": "low-resource language performance, low-bandwidth delivery, real economic stakes, and no tolerance for hallucination",
+    "start": 423,
+    "end": 538,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_09_2239",
+    "record_id": "trace_09",
+    "text": "language evaluation, sovereign stack, low-code, orchestration, M&E, Beyond Bias, open source, the team, and agriculture",
+    "start": 2239,
+    "end": 2358,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_10_97",
+    "record_id": "trace_10",
+    "text": "build excellent public workflows with partners who bring grounded scenarios, evaluate against golden datasets in the languages that matter, ship to the channels people already use, and measure whether anything actually improved",
+    "start": 97,
+    "end": 324,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_listoverload_trace_10_2029",
+    "record_id": "trace_10",
+    "text": "language evaluation, sovereign stack, low-code, orchestration, M&E, Beyond Bias, open source, the team, agriculture, health and education",
+    "start": 2029,
+    "end": 2166,
+    "mode": "Excessive enumeration / list overload",
+    "status": "dismissed"
+  },
+  {
+    "id": "s_conjunction_initial_sent_trace_06_1982",
+    "record_id": "trace_06",
+    "text": "And both establish a foothold in a market we intend to serve seriously: cultural institutions, museums and universities navigating what AI means for art, heritage and creative control.",
+    "start": 1982,
+    "end": 2166,
+    "mode": "Conjunction-initial sentence opening (And/But)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_unverifiable_questionabl_trace_08_743",
+    "record_id": "trace_08",
+    "text": "He remains an active builder on the platform rather than an absent executive, with 175 public workflows and nearly 50,000 runs to his name.",
+    "start": 743,
+    "end": 882,
+    "mode": "Unverifiable / questionable factual claims about people",
+    "status": "accepted"
+  },
+  {
+    "id": "s_unverifiable_questionabl_trace_08_884",
+    "record_id": "trace_08",
+    "text": "Archana Prasad, Founder and Chief Creative Officer, comes from the cultural sector rather than enterprise software.",
+    "start": 884,
+    "end": 999,
+    "mode": "Unverifiable / questionable factual claims about people",
+    "status": "accepted"
+  },
+  {
+    "id": "s_unverifiable_questionabl_trace_08_1000",
+    "record_id": "trace_08",
+    "text": "A design researcher and previously COO at Dara.network and Founder Director of Jaaga and BeFantastic",
+    "start": 1000,
+    "end": 1100,
+    "mode": "Unverifiable / questionable factual claims about people",
+    "status": "accepted"
+  },
+  {
+    "id": "s_unverifiable_questionabl_trace_08_1278",
+    "record_id": "trace_08",
+    "text": "Dev Aggarwal, Co-founder and CTO, leads the engineering behind the orchestration layer: the abstraction that turns model calls, retrieval and tool use into human-readable recipes.",
+    "start": 1278,
+    "end": 1457,
+    "mode": "Unverifiable / questionable factual claims about people",
+    "status": "accepted"
+  },
+  {
+    "id": "s_jargon_technical_density_trace_01_1123",
+    "record_id": "trace_01",
+    "text": "a human-readable chain of prompts, abstracted model calls, retrieval documents and tool calls, paired with use-case-specific \"golden\" input and output datasets",
+    "start": 1123,
+    "end": 1282,
+    "mode": "Jargon / technical density overload",
+    "status": "accepted"
+  },
+  {
+    "id": "s_jargon_technical_density_trace_02_714",
+    "record_id": "trace_02",
+    "text": "human-readable chains of prompts, abstracted model calls, retrieval documents and tool calls \u2014 so that the model itself becomes a swappable component",
+    "start": 714,
+    "end": 863,
+    "mode": "Jargon / technical density overload",
+    "status": "accepted"
+  },
+  {
+    "id": "s_jargon_technical_density_trace_03_631",
+    "record_id": "trace_03",
+    "text": "a small, human-readable chain of prompts, abstracted model calls, retrieval documents and tool calls, assembled and edited in plain language rather than code",
+    "start": 631,
+    "end": 788,
+    "mode": "Jargon / technical density overload",
+    "status": "accepted"
+  },
+  {
+    "id": "s_jargon_technical_density_trace_04_581",
+    "record_id": "trace_04",
+    "text": "We abstract everything into AI workflow recipes: small, collaborative artefacts combining LLM prompts, chained model calls, tool calls and code snippets, RAG documents, analytics, and use-case-specific golden evaluation datasets.",
+    "start": 581,
+    "end": 810,
+    "mode": "Jargon / technical density overload",
+    "status": "accepted"
+  },
+  {
+    "id": "s_jargon_technical_density_trace_08_1312",
+    "record_id": "trace_08",
+    "text": "leads the engineering behind the orchestration layer: the abstraction that turns model calls, retrieval and tool use into human-readable recipes",
+    "start": 1312,
+    "end": 1456,
+    "mode": "Jargon / technical density overload",
+    "status": "accepted"
+  },
+  {
+    "id": "s_redundant_circular_trace_07_621",
+    "record_id": "trace_07",
+    "text": "we are currently in certification with the Digital Public Goods Alliance to be recognised as a Digital Public Good",
+    "start": 621,
+    "end": 735,
+    "mode": "Redundant / circular phrasing",
+    "status": "accepted"
+  },
+  {
+    "id": "s_redundant_circular_trace_09_1242",
+    "record_id": "trace_09",
+    "text": "grounded, real-world scenarios",
+    "start": 1242,
+    "end": 1272,
+    "mode": "Redundant / circular phrasing",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_01_679",
+    "record_id": "trace_01",
+    "text": "India, Europe and China",
+    "start": 679,
+    "end": 702,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_01_603",
+    "record_id": "trace_01",
+    "text": "OpenAI, Google, Anthropic",
+    "start": 603,
+    "end": 628,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_02_247",
+    "record_id": "trace_02",
+    "text": "Ministries, universities and impact organisations",
+    "start": 247,
+    "end": 296,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_02_903",
+    "record_id": "trace_02",
+    "text": "OpenAI, Google or Anthropic",
+    "start": 903,
+    "end": 930,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_02_1274",
+    "record_id": "trace_02",
+    "text": "HIPAA, GDPR and SOC 2 Type II",
+    "start": 1274,
+    "end": 1303,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_02_1959",
+    "record_id": "trace_02",
+    "text": "inspect, verify and, if necessary, exercise",
+    "start": 1959,
+    "end": 2002,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_04_1062",
+    "record_id": "trace_04",
+    "text": "OpenAI, Google, Anthropic",
+    "start": 1062,
+    "end": 1087,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_05_639",
+    "record_id": "trace_05",
+    "text": "impact, usage and NPS",
+    "start": 639,
+    "end": 660,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_06_1124",
+    "record_id": "trace_06",
+    "text": "gender, caste and race",
+    "start": 1124,
+    "end": 1146,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_06_1325",
+    "record_id": "trace_06",
+    "text": "probe model behaviour, document what they find, and contribute toward more inclusive datasets and tools",
+    "start": 1325,
+    "end": 1428,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_06_2054",
+    "record_id": "trace_06",
+    "text": "cultural institutions, museums and universities",
+    "start": 2054,
+    "end": 2101,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_07_899",
+    "record_id": "trace_07",
+    "text": "inspectable, deployable and forkable",
+    "start": 899,
+    "end": 935,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_08_219",
+    "record_id": "trace_08",
+    "text": "Code, Culture and the Field",
+    "start": 219,
+    "end": 246,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_08_1672",
+    "record_id": "trace_08",
+    "text": "deep technical depth, creative and cultural practice, and genuine familiarity with frontline constraints",
+    "start": 1672,
+    "end": 1776,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_08_1393",
+    "record_id": "trace_08",
+    "text": "model calls, retrieval and tool use",
+    "start": 1393,
+    "end": 1428,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_09_1905",
+    "record_id": "trace_09",
+    "text": "grounded evals, local languages, frontline channels",
+    "start": 1905,
+    "end": 1956,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_09_1757",
+    "record_id": "trace_09",
+    "text": "develop excellent public workflows with partners in one field, prove resonance and monetisation, then extend the pattern",
+    "start": 1757,
+    "end": 1877,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_10_558",
+    "record_id": "trace_10",
+    "text": "safe, culturally legible and delivered in the user's own language",
+    "start": 558,
+    "end": 623,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_10_1316",
+    "record_id": "trace_10",
+    "text": "find, fork and adapt",
+    "start": 1316,
+    "end": 1336,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_rule_of_three_trace_10_1685",
+    "record_id": "trace_10",
+    "text": "model-agnosticism, sovereign deployment options and cultural work",
+    "start": 1685,
+    "end": 1750,
+    "mode": "Rule-of-three phrasing (verb/adjective triplets)",
+    "status": "accepted"
+  },
+  {
+    "id": "s_staccato_sprawl_trace_01_1035",
+    "record_id": "trace_01",
+    "text": "What distinguishes this approach is the unit of analysis. We evaluate the AI workflow \u2014 a human-readable chain of prompts, abstracted model calls, retrieval documents and tool calls, paired with use-case-specific \"golden\" input and output datasets \u2014 rather than an abstract model score.",
+    "start": 1035,
+    "end": 1321,
+    "mode": "Staccato-then-sprawl sentence rhythm",
+    "status": "pending"
+  },
+  {
+    "id": "s_staccato_sprawl_trace_02_647",
+    "record_id": "trace_02",
+    "text": "The foundation is abstraction. We reduce AI systems to workflows \u2014 human-readable chains of prompts, abstracted model calls, retrieval documents and tool calls \u2014 so that the model itself becomes a swappable component.",
+    "start": 647,
+    "end": 864,
+    "mode": "Staccato-then-sprawl sentence rhythm",
+    "status": "pending"
+  },
+  {
+    "id": "s_staccato_sprawl_trace_03_1389",
+    "record_id": "trace_03",
+    "text": "Deployment matters just as much as authoring. A workflow can ship instantly to the channels the Global South actually uses \u2014 WhatsApp, Telegram, Facebook, SMS, voice and web \u2014 so usability testing happens with real users, in real languages, in days rather than months.",
+    "start": 1389,
+    "end": 1657,
+    "mode": "Staccato-then-sprawl sentence rhythm",
+    "status": "pending"
+  },
+  {
+    "id": "s_staccato_sprawl_trace_04_545",
+    "record_id": "trace_04",
+    "text": "Gooey.AI inverts that relationship. We abstract everything into AI workflow recipes: small, collaborative artefacts combining LLM prompts, chained model calls, tool calls and code snippets, RAG documents, analytics, and use-case-specific golden evaluation datasets.",
+    "start": 545,
+    "end": 810,
+    "mode": "Staccato-then-sprawl sentence rhythm",
+    "status": "pending"
+  },
+  {
+    "id": "s_staccato_sprawl_trace_06_1194",
+    "record_id": "trace_06",
+    "text": "The method is deliberately hands-on. Through public prompt-a-thons and workshops held in Bangalore, Delhi and beyond, participants probe model behaviour, document what they find, and contribute toward more inclusive datasets and tools.",
+    "start": 1194,
+    "end": 1429,
+    "mode": "Staccato-then-sprawl sentence rhythm",
+    "status": "pending"
+  },
+  {
+    "id": "s_staccato_sprawl_trace_07_827",
+    "record_id": "trace_07",
+    "text": "Openness at Gooey operates at three levels. The first is the codebase \u2014 inspectable, deployable and forkable, which means an organisation that adopts us cannot be locked out of what it has built.",
+    "start": 827,
+    "end": 1022,
+    "mode": "Staccato-then-sprawl sentence rhythm",
+    "status": "pending"
+  },
+  {
+    "id": "s_staccato_sprawl_trace_08_1505",
+    "record_id": "trace_08",
+    "text": "The composition matters. A team of only engineers would have built a developer tool; a team of only impact practitioners would have built a report.",
+    "start": 1505,
+    "end": 1652,
+    "mode": "Staccato-then-sprawl sentence rhythm",
+    "status": "pending"
+  },
+  {
+    "id": "s_staccato_sprawl_trace_09_1050",
+    "record_id": "trace_09",
+    "text": "Rigour matters as much as reach. Our agricultural advisory evaluation work is published at gooey.ai/ageval, built on golden evaluation datasets developed with partner organisations who supply grounded, real-world scenarios.",
+    "start": 1050,
+    "end": 1273,
+    "mode": "Staccato-then-sprawl sentence rhythm",
+    "status": "pending"
+  },
+  {
+    "id": "s_staccato_sprawl_trace_10_500",
+    "record_id": "trace_10",
+    "text": "Mental health is an unforgiving test case. Advice must be safe, culturally legible and delivered in the user's own language, often through a phone rather than a clinic.",
+    "start": 500,
+    "end": 668,
+    "mode": "Staccato-then-sprawl sentence rhythm",
+    "status": "pending"
+  }
+]

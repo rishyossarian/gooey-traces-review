@@ -1,0 +1,179 @@
+[
+  {
+    "id": "trace_01",
+    "prompt": "Write a 300 word essay on Gooey's low-resource language evaluation capabilities",
+    "output": "Here's a standalone 300-word essay.\n\nEvaluating AI Where It Is Hardest: Low-Resource Languages\nThe most consequential gap in artificial intelligence today is not capability \u2014 it is coverage. Frontier models perform impressively in English and a handful of high-resource languages, then degrade sharply in the languages spoken by the communities that global impact organisations exist to serve. Vendor benchmarks rarely surface this decline, because they are seldom designed to look for it.\n\nGooey.AI was built to close that measurement gap. Because our platform aggregates both leading private models \u2014 OpenAI, Google, Anthropic \u2014 and the strongest open-weight alternatives from India, Europe and China, including Mistral, SwissAI, Qwen, Kimi and DeepSeek, we can benchmark competing model families on an identical task, in an identical language, against an identical rubric. Our public low-resource language evaluation work is published at gooey.ai/language, with domain-specific agricultural advisory evaluation at gooey.ai/ageval.\n\nWhat distinguishes this approach is the unit of analysis. We evaluate the AI workflow \u2014 a human-readable chain of prompts, abstracted model calls, retrieval documents and tool calls, paired with use-case-specific \"golden\" input and output datasets \u2014 rather than an abstract model score. A model that leads a general leaderboard may fail badly at Swahili agricultural advice delivered over SMS. Evaluating at workflow level produces findings that translate directly into deployment decisions: which model, in which language, for which use case, at what cost, and under which sovereignty constraints.\n\nThis work is grounded in deployment rather than laboratory conditions. Gooey.AI supports over 1,500 languages and has served 1.5 million users through WhatsApp, Telegram, SMS, voice and web \u2014 the channels frontline communities actually use. We conduct low-resource language and agricultural evaluations on behalf of the Gates Foundation, where we also sit on its AI Advisory Committee for Agriculture and Digital Public Infrastructure.\n\nEvery prompt, model version, corpus and cost remains transparent and reproducible. Our orchestration platform is Apache 2.0 licensed and in certification as a Digital Public Good \u2014 because claims about language performance should be verifiable by anyone, not asserted by the vendor.\n\n\u2248310 words. I've kept figures to those in our approved company materials \u2014 send me the latest eval results if you'd like specific accuracy numbers included.\n\n\n\u2702\ufe0f Trim to exactly 300 words\n\n\ud83c\udf93 Make it more academic in tone\n\n\ud83d\udcc4 Save this to a new Google Doc\n\n\ud83d\udd17 Merge with the grant paragraphs",
+    "topic": "low-resource languages",
+    "word_count": 339,
+    "claimed_count": 310,
+    "is_continuation": false,
+    "n_chips": 4,
+    "flags": [
+      "claimed \u2248310w but actual body is 339w",
+      "exceeds 300-word limit by 39w",
+      "8 em-dashes"
+    ],
+    "cluster": 4,
+    "em_dash_count": 8,
+    "colon_count": 2
+  },
+  {
+    "id": "trace_02",
+    "prompt": "Write a 300 word essay on Gooey's sovereign stack",
+    "output": "Here's a standalone 300-word essay.\n\nThe Sovereign Stack: AI That Stays Where It Belongs\nFor a growing number of institutions, the decisive question about an AI system is no longer how good is it? but where does it run, and who can switch it off? Ministries, universities and impact organisations across the Global South and Europe increasingly share a concern: they do not want their data, or their inference spending, leaving their borders \u2014 and they do not want a change in geopolitics to sever access to tools their frontline services now depend on.\n\nGooey.AI treats sovereignty as an architectural property rather than a compliance checkbox. The foundation is abstraction. We reduce AI systems to workflows \u2014 human-readable chains of prompts, abstracted model calls, retrieval documents and tool calls \u2014 so that the model itself becomes a swappable component. An organisation can run a workflow on OpenAI, Google or Anthropic today, and on Mistral, SwissAI, Qwen, Kimi or DeepSeek tomorrow, without rewriting the application. Hot-swappability is what makes independence real: no vendor lock-in, and a genuine option to select whichever model is faster, cheaper, cleaner or more sovereign this month.\n\nThe second layer is deployment. Alongside standard certifications \u2014 HIPAA, GDPR and SOC 2 Type II \u2014 we offer in-country, on-premise and airgapped server support, so that inference and data can remain within national jurisdiction where policy or law requires it.\n\nThe third layer is openness. Our orchestration platform is Apache 2.0 licensed and currently in certification as a Digital Public Good with the Digital Public Goods Alliance. Open source is the ultimate sovereignty guarantee: an institution that holds the code cannot be locked out of it.\n\nUnderpinning all three is radical transparency. Every prompt, model, retrieval database and cost is visible. Sovereignty, in the end, is not a promise a vendor makes \u2014 it is a property a customer can inspect, verify and, if necessary, exercise without permission.\n\n\u2248305 words. Written to company-approved claims only. Tell me the funder or audience and I'll adjust emphasis \u2014 e.g. more on EU data residency, or more on Global South inference economics.\n\n\n\u2702\ufe0f Trim to exactly 300 words\n\n\ud83c\uddea\ud83c\uddfa Angle it for a European funder\n\n\ud83d\udcc4 Save both essays to a Google Doc\n\n\ud83d\udd17 Add a short section on sovereign AI trends",
+    "topic": "sovereign stack",
+    "word_count": 319,
+    "claimed_count": 305,
+    "is_continuation": false,
+    "n_chips": 3,
+    "flags": [
+      "exceeds 300-word limit by 19w",
+      "7 em-dashes",
+      "4 colons"
+    ],
+    "cluster": 0,
+    "em_dash_count": 7,
+    "colon_count": 4
+  },
+  {
+    "id": "trace_03",
+    "prompt": "Write a 300 word essay on Gooey's low-code capabilities",
+    "output": "Low-Code as a Distribution Strategy\nThe scarcest resource in global impact work is not ambition \u2014 it is engineering capacity. The programme manager who understands exactly what her 10,000 frontline health workers need is rarely the person who can build it, and the queue for the organisation's two developers is measured in quarters. AI's promise stalls in that queue.\n\nGooey.AI's low-code approach removes it. Our platform lowers the barrier far enough that non-coders can vibe-code working agents \u2014 moving from intent to a testable, deployed prototype without waiting for an engineering sprint. The mechanism is the AI workflow: a small, human-readable chain of prompts, abstracted model calls, retrieval documents and tool calls, assembled and edited in plain language rather than code. Because a workflow is a small artefact rather than a codebase, it can be read, understood, forked and improved by someone who has never written a function.\n\nThat legibility has a second effect: it makes AI spreadable. Workflows are shared in collaborative workspaces, where teams see one another's work and can discover and fork the workflows of other organisations in their field. A proven approach in Kenyan agriculture becomes a starting point in Indian education, without a rebuild. This is why we treat low-code not merely as a usability feature but as a distribution strategy for innovation.\n\nDeployment matters just as much as authoring. A workflow can ship instantly to the channels the Global South actually uses \u2014 WhatsApp, Telegram, Facebook, SMS, voice and web \u2014 so usability testing happens with real users, in real languages, in days rather than months. Built-in evaluation and impact dashboards then show whether it is working.\n\nThe result reframes who gets to build. Professors, programme managers, tech leads and students all become authors rather than petitioners \u2014 and product-market fit is discovered in the field, by the people closest to the problem.\n\n\u2248305 words. Same house style as the language-evaluation and sovereign-stack essays, so the three read as a set.\n\n\n\u2702\ufe0f Trim to exactly 300 words\n\n\ud83c\udf93 Angle this one for a university audience\n\n\ud83d\udcc4 Save all three essays to one Google Doc\n\n\u2795 Write a fourth on our open-source vision",
+    "topic": "low-code",
+    "word_count": 309,
+    "claimed_count": 305,
+    "is_continuation": false,
+    "n_chips": 3,
+    "flags": [
+      "exceeds 300-word limit by 9w"
+    ],
+    "cluster": 6,
+    "em_dash_count": 5,
+    "colon_count": 2
+  },
+  {
+    "id": "trace_04",
+    "prompt": "Write a 300 word essay on Gooey's orchestration, vendor-agnostic capabilities",
+    "output": "Here's the fourth in the set \u2014 angled on orchestration mechanics rather than repeating the sovereignty argument.\n\nOrchestration as the Layer That Sets You Free\nMost organisations do not have a model problem. They have an orchestration problem. Choosing a model is a single decision; wiring prompts, retrieval, tool calls, channels, analytics and billing around that model is a permanent commitment \u2014 and it is that surrounding machinery, not the model, that quietly locks a customer in. Rip out the vendor and the whole assembly comes with it.\n\nGooey.AI inverts that relationship. We abstract everything into AI workflow recipes: small, collaborative artefacts combining LLM prompts, chained model calls, tool calls and code snippets, RAG documents, analytics, and use-case-specific golden evaluation datasets. The model is a parameter inside the recipe, not the foundation beneath it. Swap it and the workflow keeps running.\n\nThat abstraction makes genuine vendor-agnosticism practical rather than theoretical. Our platform aggregates the best private models \u2014 OpenAI, Google, Anthropic \u2014 alongside the strongest open-weight alternatives from India, Europe and China, including Mistral, SwissAI, Qwen, Kimi and DeepSeek. Because each workflow carries its own golden eval dataset, switching is an evidence-based decision: run the same task against a new model, compare results on the use case that actually matters, and adopt whichever is smarter, faster, cheaper, cleaner or more sovereign this month. Hot-swappability without evaluation is just churn; paired with evals, it becomes compounding advantage.\n\nThe operational layer follows the same logic. One organisational billing account spans every private and public model, so procurement does not have to be renegotiated each time the frontier moves. Every prompt, model, retrieval database and cost stays visible.\n\nThe strategic ambition is larger. By pushing open source and abstraction, we intend workflows to become a new layer that commoditises the models beneath them \u2014 and, through our open-source vision and AI workflow standards work, to commoditise the runtime itself, for customers' benefit rather than ours.\n\n\u2248310 words. Consistent with the other three \u2014 this one carries the \"commoditise the model layer\" argument so the sovereignty essay doesn't have to.\n\n\n\u2702\ufe0f Trim to exactly 300 words\n\n\ud83d\udcc4 Save all four essays to one Google Doc\n\n\ud83d\udcdd Write a 150-word intro tying the set together\n\n\u2795 Add a fifth on measurable impact and M&E",
+    "topic": "orchestration / vendor-agnostic",
+    "word_count": 322,
+    "claimed_count": 310,
+    "is_continuation": false,
+    "n_chips": 3,
+    "flags": [
+      "exceeds 300-word limit by 22w",
+      "6 em-dashes"
+    ],
+    "cluster": 5,
+    "em_dash_count": 6,
+    "colon_count": 2
+  },
+  {
+    "id": "trace_05",
+    "prompt": "\u2795 Add a fifth on measurable impact and M&E",
+    "output": "Proving It: Measurement as a First-Class Feature\nGlobal impact work has a long history of expensive pilots that were never honestly assessed. AI has made the problem worse, not better: it is now trivially easy to ship something that looks impressive in a demo and impossible, six months later, to say whether it changed an outcome for anyone. Budgets are tightening precisely as the temptation to spend on AI intensifies. Measurement is what separates the two.\n\nGooey.AI treats monitoring and evaluation as part of the product rather than a reporting obligation bolted on afterwards. Every workflow ships with built-in dashboards covering impact, usage and NPS, so the questions a funder will eventually ask \u2014 who used this, how often, did it help, would they recommend it \u2014 are answerable from day one rather than reconstructed retrospectively.\n\nThe deeper mechanism is the golden evaluation dataset. Each workflow recipe carries use-case-specific desirable inputs and outputs, defined with partner organisations who bring grounded scenarios from the field. This turns quality from an opinion into a test. It also makes progress cumulative: when a new model is released, the question is not whether it tops a general leaderboard but whether it improves this metric, on this task, in this language. Constant AI advances become measurable business improvement rather than undirected churn.\n\nWe also make evaluation legible to non-specialists. Use-case-based evals and ROI dashboards can be structured around an organisation's own Theory of Change, so results speak in the language of the mission rather than the language of machine learning. Radical transparency completes the picture: every prompt, model, retrieval database and cost is visible, so cost-per-outcome is calculable, not estimated.\n\nThe effect is a faster, more honest loop \u2014 prototype, test with real users, measure, iterate \u2014 which is how 1.5 million users and over 2,200 paying clients found workflows that actually work.\n\n\u2248310 words. You now have five matched essays: low-resource language evaluation, sovereign stack, low-code, orchestration/vendor-agnosticism, and M&E.\n\n\n\ud83d\udcc4 Save all five essays to one Google Doc\n\n\ud83d\udcdd Write a 150-word intro tying the set together\n\n\u2702\ufe0f Trim all five to exactly 300 words\n\n\ud83c\udfaf Adapt the set for a specific funder",
+    "topic": "measurable impact & M&E",
+    "word_count": 308,
+    "claimed_count": 310,
+    "is_continuation": true,
+    "n_chips": 4,
+    "flags": [
+      "exceeds 300-word limit by 8w",
+      "5 colons"
+    ],
+    "cluster": 6,
+    "em_dash_count": 4,
+    "colon_count": 5
+  },
+  {
+    "id": "trace_06",
+    "prompt": "Write a 300 word essay on Gooey's initiative Beyond Bias",
+    "output": "I only have one line on Beyond Bias in our company materials \u2014 let me find more before writing.\n\nHere's the sixth in the set.\n\nBeyond Bias: Asking Whose World the Model Imagines\nAsk a generative image model for \"a doctor,\" \"a wedding,\" or \"a family,\" and it will answer with striking confidence \u2014 and a narrow imagination. The output will reflect the distribution of its training data, which is to say the distribution of who has historically been photographed, published and captioned online. For a Global South audience, the result is a machine that renders their world as an exception rather than a default. This is not a bug to be patched. It is a question about who participates in building the systems.\n\nBeyond Bias, a collaboration between Gooey.AI and Goethe-Institut India launched in March 2025, takes that question seriously. Rather than treating bias as a technical parameter to be tuned by engineers, the initiative reimagines generative AI through participatory practice \u2014 bringing artists, designers, students and cultural practitioners into direct contact with the models, and asking them to interrogate how gender, caste and race are represented in what those models produce.\n\nThe method is deliberately hands-on. Through public prompt-a-thons and workshops held in Bangalore, Delhi and beyond, participants probe model behaviour, document what they find, and contribute toward more inclusive datasets and tools. The output is not only critique but artefact: shared workflows, evidence and creative work that others can examine and build on. The initiative's approach has since been documented in a research paper on participatory and reflective approaches to cultural AI.\n\nFor Gooey.AI, Beyond Bias sits naturally alongside our low-resource language evaluation work. Both proceed from the same conviction \u2014 that the performance of AI in underrepresented contexts must be examined empirically, by the people affected, rather than assumed from a vendor's benchmark. And both establish a foothold in a market we intend to serve seriously: cultural institutions, museums and universities navigating what AI means for art, heritage and creative control.\n\nSources\n\nBeyond Bias: Making AI More Inclusive \u2022 gooey.ai/beyondbias\nBeyond Bias \u2014 Goethe-Institut India \u2022 goethe.de\nBeyond Bias: Participatory and Reflective Approaches to Cultural AI \u2022 arxiv.org\n\n\u2248310 words. Flagging that details on outcomes and participant numbers were thin in public sources \u2014 if you have internal figures, I'll work them in.\n\n\n\ud83d\udcc4 Save all six essays to one Google Doc\n\n\ud83c\udfa8 Expand this for a cultural-sector funder\n\n\ud83d\udcca Add participation numbers and outcomes\n\n\ud83d\udcdd Write a 150-word intro tying the set together\n\n\n\n\nMessage Gooey.AI Company Bot",
+    "topic": "Beyond Bias",
+    "word_count": 362,
+    "claimed_count": 310,
+    "is_continuation": false,
+    "n_chips": 4,
+    "flags": [
+      "claimed \u2248310w but actual body is 362w",
+      "exceeds 300-word limit by 62w",
+      "6 em-dashes",
+      "5 colons"
+    ],
+    "cluster": 3,
+    "em_dash_count": 6,
+    "colon_count": 5
+  },
+  {
+    "id": "trace_07",
+    "prompt": "Write a 300 word essay on Gooey's open-source traits",
+    "output": "Here's the seventh in the set.\n\nOpen Source as Trust Infrastructure\n\"Open\" has become a marketing adjective. Models are released with restrictive licences and undisclosed training data, and the word survives intact. For institutions making decade-long commitments \u2014 a ministry, a university, a foundation funding frontline services \u2014 that ambiguity is a genuine risk. They need to know what they can inspect, what they can keep, and what happens if the vendor changes its mind.\n\nGooey.AI's answer is unambiguous. Our orchestration platform is licensed under Apache 2.0, one of the most permissive licences available, and we are currently in certification with the Digital Public Goods Alliance to be recognised as a Digital Public Good. There is no open-core bait: the platform that runs the workflows is the code we publish.\n\nOpenness at Gooey operates at three levels. The first is the codebase \u2014 inspectable, deployable and forkable, which means an organisation that adopts us cannot be locked out of what it has built. The second is the workflow. Because recipes are small, human-readable artefacts rather than opaque applications, they are legible to non-engineers and shareable by design. Collaborative workspaces let teams see one another's work and discover and fork workflows from other organisations in their field \u2014 so a solution proven in one context becomes a starting point in another rather than a rebuild. The third is radical transparency in operation: every prompt, model, retrieval database and cost is visible. Nothing about how an answer was produced, or what it cost, is hidden behind an abstraction we control.\n\nThe strategic intent behind this is deliberate. Through our open-source vision and AI workflow standards work, we want the workflow layer \u2014 and ultimately the runtime itself \u2014 to become commoditised, for customers' benefit rather than ours.\n\nThat is an uncomfortable position for a vendor to argue. It is the correct one for a platform claiming to serve public goods.\n\n\u2248310 words. This one carries the licensing and public-goods argument; the orchestration essay carries commoditisation, and the sovereign-stack essay carries lock-out risk \u2014 so the three overlap without repeating.",
+    "topic": "open-source",
+    "word_count": 318,
+    "claimed_count": 310,
+    "is_continuation": false,
+    "n_chips": 0,
+    "flags": [
+      "exceeds 300-word limit by 18w",
+      "7 em-dashes"
+    ],
+    "cluster": 2,
+    "em_dash_count": 7,
+    "colon_count": 2
+  },
+  {
+    "id": "trace_08",
+    "prompt": "Write a 300 word essay on Gooey's team",
+    "output": "have nothing on the team in our company materials \u2014 let me check what's public before writing.\n\nHere's the eighth in the set \u2014 built from public sources, with gaps flagged below.\n\nThe Team: Built at the Intersection of Code, Culture and the Field\nPlatforms reflect the people who build them, and Gooey.AI's founding team explains a good deal about why the product looks the way it does. It was founded in 2022 by three people whose backgrounds sit in unusually different places.\n\nSean Blagsvedt, Founder and CEO, has been building AI bots for more than twenty years \u2014 a span that predates the current wave entirely and includes the long, unglamorous work of making technology usable for people on low-end phones and low-bandwidth connections. He remains an active builder on the platform rather than an absent executive, with 175 public workflows and nearly 50,000 runs to his name.\n\nArchana Prasad, Founder and Chief Creative Officer, comes from the cultural sector rather than enterprise software. A design researcher and previously COO at Dara.network and Founder Director of Jaaga and BeFantastic, she brings the practice that makes initiatives like Beyond Bias possible \u2014 the conviction that artists and communities should interrogate AI systems, not merely receive them.\n\nDev Aggarwal, Co-founder and CTO, leads the engineering behind the orchestration layer: the abstraction that turns model calls, retrieval and tool use into human-readable recipes. Steve Carver serves as Chief Revenue Officer.\n\nThe composition matters. A team of only engineers would have built a developer tool; a team of only impact practitioners would have built a report. The combination of deep technical depth, creative and cultural practice, and genuine familiarity with frontline constraints is why Gooey.AI is a low-code platform serving 1,500-plus languages rather than an API for people who already know how to code.\n\nIt is also why the founders spend time where the work happens \u2014 travelling together to Kenya to sit with the organisations turning ambitious ideas into deployed services. Proximity to users is not a value statement here. It is a working method.\n\nSources\n\nTeam \u2014 Gooey.AI \u2022 gooey.ai/team\nGooey.AI Makes AI More Accessible Across Communities (NVIDIA blog) \u2022 blogs.nvidia.com\nArchana Prasad \u2014 Crunchbase \u2022 crunchbase.com\nGooey.AI \u2014 LinkedIn \u2022 linkedin.com\n\n\u2248305 words. Two caveats: I had nothing on the team in our internal materials, so this is assembled from public pages \u2014 please check titles and Dev's background, which was thin online. I also left out headcount and any advisors/board. Send me internal bios and I'll make it more substantive.\n\n\n\ud83d\udcc4 Save all eight essays to one Google Doc\n\n\u270d\ufe0f Add internal bios and rewrite\n\n\ud83c\udfc6 Add advisory roles and recognition\n\n\ud83d\udcdd Write a 150-word intro tying the set together",
+    "topic": "team",
+    "word_count": 371,
+    "claimed_count": 305,
+    "is_continuation": false,
+    "n_chips": 3,
+    "flags": [
+      "claimed \u2248305w but actual body is 371w",
+      "longest output (371w)",
+      "exceeds 300-word limit by 71w",
+      "9 em-dashes"
+    ],
+    "cluster": 1,
+    "em_dash_count": 9,
+    "colon_count": 3
+  },
+  {
+    "id": "trace_09",
+    "prompt": "Write a 300 word essay on Gooey's work on agriculture",
+    "output": "Agriculture: Where the Hardest AI Problems Live\nA smallholder farmer with two acres notices something wrong with her crop. She has a question, a feature phone, patchy connectivity, and a language that appears nowhere near the top of any model leaderboard. She needs an answer this week, not next season, and a confidently wrong one may cost her the harvest.\n\nEvery difficult problem in applied AI converges on that moment: low-resource language performance, low-bandwidth delivery, real economic stakes, and no tolerance for hallucination. It is why Gooey.AI chose agriculture as the field in which to prove the platform first.\n\nWe serve as the AI middleware provider and partner for Farmer.chat, a multilingual WhatsApp bot for smallholder farmers across India and Africa, which was demonstrated at the UN General Assembly Science Panel. We are also the AI platform behind Opportunity.org and Safaricom's DigiFarm in Kenya \u2014 deployments that reach farmers through the channels they already use rather than an app they must be persuaded to install.\n\nRigour matters as much as reach. Our agricultural advisory evaluation work is published at gooey.ai/ageval, built on golden evaluation datasets developed with partner organisations who supply grounded, real-world scenarios. This means model selection is settled by evidence on the actual task \u2014 is this advice correct, in this language, for this crop and region \u2014 rather than by general benchmark scores.\n\nThat work has earned a seat at the table. Gooey.AI sits on the Gates Foundation's AI Advisory Committee for Agriculture and Digital Public Infrastructure, and conducts low-resource language and agricultural advisory evaluations on the Foundation's behalf.\n\nAgriculture was deliberately our beachhead: develop excellent public workflows with partners in one field, prove resonance and monetisation, then extend the pattern. The method it taught us \u2014 grounded evals, local languages, frontline channels \u2014 is what we now carry into health and education.\n\n\u2248305 words. Written from company materials only. I deliberately left out farmer reach numbers for Farmer.chat and DigiFarm \u2014 say the word and I'll source verified public figures to strengthen it.\n\nYou now have nine matched essays: language evaluation, sovereign stack, low-code, orchestration, M&E, Beyond Bias, open source, the team, and agriculture.\n\n\n\ud83d\udcca Add verified reach numbers for Farmer.chat and DigiFarm\n\n\ud83d\udcc4 Save all nine essays to one Google Doc\n\n\ud83d\udcdd Write a 150-word intro tying the set together\n\n\u2795 Write a tenth on health and education",
+    "topic": "agriculture",
+    "word_count": 306,
+    "claimed_count": 305,
+    "is_continuation": false,
+    "n_chips": 3,
+    "flags": [
+      "exceeds 300-word limit by 6w",
+      "6 em-dashes",
+      "4 colons"
+    ],
+    "cluster": 6,
+    "em_dash_count": 6,
+    "colon_count": 4
+  },
+  {
+    "id": "trace_10",
+    "prompt": "\u2795 Write a tenth on health and education",
+    "output": "Health and Education: Extending the Pattern\nAgriculture taught us a method rather than a domain: build excellent public workflows with partners who bring grounded scenarios, evaluate against golden datasets in the languages that matter, ship to the channels people already use, and measure whether anything actually improved. Health and education are where that method travels next.\n\nIn health, we are the AI platform provider \u2014 alongside Google \u2014 for the Wellcome Trust's Mental Health Accelerator. Mental health is an unforgiving test case. Advice must be safe, culturally legible and delivered in the user's own language, often through a phone rather than a clinic. It is precisely the kind of problem where a general benchmark score tells you almost nothing and a use-case-specific evaluation tells you everything. After our work in agriculture, global health is the logical field for deeper engagement, and one of the markets we intend to serve seriously.\n\nIn education, TeachForIndia is a live deployment under the Rockefeller Foundation's AI Workflow Accelerator, sitting alongside implementations at the UN Office of Immigration and the City of Seattle's non-emergency helpline. The accelerator model matters here: rather than building one bespoke system, partners create workflows others in their field can find, fork and adapt.\n\nUniversities represent the other half of the education story, and a different set of needs. Professors want to bring advanced AI tools to their students; IT heads want a simple, fixed-cost option that avoids on-premise complexity; students arrive because their institution grants them credits, and can buy more if they want to keep building. Our model-agnosticism, sovereign deployment options and cultural work make us a credible answer to all three.\n\nThe connective thread is the workflow itself \u2014 small, legible, forkable. A pattern proven with farmers in Kenya becomes a starting point for a teacher in Delhi, without a rebuild.\n\n\u2248305 words. Company materials only. The set is now ten: language evaluation, sovereign stack, low-code, orchestration, M&E, Beyond Bias, open source, the team, agriculture, health and education.\n\nOne flag before you use these: the team essay is the weakest of the ten, because it was assembled from public web sources rather than internal material \u2014 titles and Dev's background are worth verifying.\n\n\n\ud83d\udcc4 Save all ten essays to one Google Doc\n\n\ud83d\udcdd Write a 150-word intro tying the set together\n\n\u2702\ufe0f Trim all ten to exactly 300 words\n\n\ud83c\udfaf Adapt the set for a specific funder",
+    "topic": "health & education",
+    "word_count": 303,
+    "claimed_count": 305,
+    "is_continuation": true,
+    "n_chips": 4,
+    "flags": [
+      "shortest output (303w)",
+      "exceeds 300-word limit by 3w",
+      "5 colons"
+    ],
+    "cluster": 6,
+    "em_dash_count": 4,
+    "colon_count": 5
+  }
+]

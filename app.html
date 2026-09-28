@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Gooey Essay Traces: Error Analysis for AI Evals</title>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --panel: #ffffff;
+    --border: #e4e0da;
+    --text: #201d1a;
+    --muted: #8a8378;
+    --accent: #b5502e;
+    --highlight: #ffe9a8;
+    --highlight-border: #e0b23e;
+    --suggestion-bg: #f1e9fb;
+    --suggestion-border: #9b7fd4;
+    --pending-bg: #fff2c2;
+    --chip-bg: #f1efe9;
+    --ok: #4a7a5a;
+    --warn: #b5502e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px;
+  }
+  #topbar {
+    display: flex; align-items: center; gap: 16px;
+    padding: 10px 20px; background: var(--panel); border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 50;
+  }
+  #topbar h1 { font-size: 15px; margin: 0; font-weight: 600; white-space: nowrap; }
+  .tabs { display: flex; gap: 4px; }
+  .tabs button {
+    padding: 6px 14px; border: 1px solid var(--border); background: var(--panel);
+    border-radius: 6px; cursor: pointer; font-size: 13px; color: var(--muted);
+  }
+  .tabs button.active { background: var(--accent); color: white; border-color: var(--accent); }
+  #progress-pill {
+    margin-left: auto; font-size: 12px; color: var(--muted);
+    background: var(--chip-bg); padding: 4px 10px; border-radius: 12px;
+  }
+  #demo-reset-btn {
+    font-size: 12px; padding: 5px 12px; border-radius: 6px; cursor: pointer;
+    border: 1px solid var(--warn); background: #fdeee8; color: var(--warn);
+  }
+  #demo-reset-btn:hover { background: var(--warn); color: white; }
+  #toast {
+    position: fixed; top: 56px; right: 20px; background: var(--text); color: white;
+    padding: 8px 14px; border-radius: 6px; font-size: 13px; z-index: 100; opacity: 0;
+    transition: opacity .3s; pointer-events: none;
+  }
+  #toast.show { opacity: 1; }
+
+  .view { display: none; }
+  .view.active { display: flex; }
+
+  /* ---------- Article view ---------- */
+  #view-article { height: calc(100vh - 49px); }
+  #rail {
+    width: 220px; flex-shrink: 0; overflow-y: auto; border-right: 1px solid var(--border);
+    background: var(--panel);
+  }
+  .rail-item {
+    padding: 10px 14px; border-bottom: 1px solid var(--border); cursor: pointer; font-size: 13px;
+  }
+  .rail-item:hover { background: var(--bg); }
+  .rail-item.active { background: #fdf1ea; border-left: 3px solid var(--accent); }
+  .rail-item .rt { color: var(--muted); font-size: 11px; margin-top: 2px; }
+  .rail-dot {
+    display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px;
+    background: var(--border);
+  }
+  .rail-dot.done { background: var(--ok); }
+
+  #content-scroll { flex: 1; overflow-y: auto; padding: 32px 0; }
+  #content-wrap { display: flex; max-width: 980px; margin: 0 auto; gap: 24px; padding: 0 24px; }
+  #article { flex: 1; max-width: 720px; }
+  #margin-col { width: 240px; flex-shrink: 0; position: relative; }
+
+  .rec-header { margin-bottom: 20px; }
+  .topic-badge {
+    display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 9px;
+    border-radius: 10px; color: white; margin-right: 6px;
+  }
+  .flag-badge {
+    display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 10px;
+    background: #fdeee8; color: var(--warn); margin-right: 6px; border: 1px solid #f0cdbc;
+  }
+  .prompt-line {
+    font-size: 13px; color: var(--muted); margin-top: 10px; padding: 8px 12px;
+    background: var(--chip-bg); border-radius: 6px; border-left: 3px solid var(--border);
+  }
+  .prompt-line b { color: var(--text); font-weight: 600; }
+
+  .block { margin: 14px 0; line-height: 1.6; position: relative; }
+  .block.title { font-size: 20px; font-weight: 700; margin-top: 22px; margin-bottom: 10px; }
+  .block.intro { font-style: italic; color: var(--muted); font-size: 14px; }
+  .block.meta { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 24px; padding-top: 12px; border-top: 1px dashed var(--border); }
+  .block.chip {
+    display: inline-block; font-size: 13px; background: var(--chip-bg); border-radius: 14px;
+    padding: 5px 12px; margin: 4px 6px 0 0; color: var(--muted);
+  }
+  .chip-row { display: flex; flex-wrap: wrap; margin-top: 4px; }
+
+  mark.ann {
+    background: var(--highlight); border-bottom: 2px solid var(--highlight-border);
+    cursor: pointer; border-radius: 2px;
+  }
+  mark.sugg {
+    background: var(--suggestion-bg); border-bottom: 2px dashed var(--suggestion-border);
+    cursor: pointer; border-radius: 2px;
+  }
+  mark.pending-highlight { background: var(--pending-bg); }
+  mark.ann.hovered, mark.sugg.hovered { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  #popover {
+    position: absolute; z-index: 60; background: var(--panel); border: 1px solid var(--border);
+    border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,.12); padding: 8px; display: none;
+  }
+  #popover textarea {
+    width: 260px; height: 56px; border: 1px solid var(--border); border-radius: 6px;
+    padding: 6px 8px; font-size: 13px; font-family: inherit; resize: vertical;
+  }
+  #popover .hint { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  .margin-note {
+    position: absolute; width: 100%; font-size: 12px; background: var(--panel);
+    border-left: 3px solid var(--highlight-border); padding: 6px 10px; border-radius: 0 6px 6px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  }
+  .margin-note.suggestion { border-left-color: var(--suggestion-border); }
+  .margin-note .quote { color: var(--muted); font-style: italic; margin-bottom: 3px; display: block; }
+  .margin-note .note-text { color: var(--text); }
+  .margin-note .mn-actions { margin-top: 4px; display: flex; gap: 6px; }
+  .margin-note .mn-actions button {
+    font-size: 11px; padding: 2px 7px; border-radius: 4px; border: 1px solid var(--border);
+    background: var(--bg); cursor: pointer;
+  }
+  .margin-note .tag {
+    display: inline-block; font-size: 10px; background: var(--suggestion-bg); color: var(--suggestion-border);
+    padding: 1px 6px; border-radius: 8px; margin-bottom: 3px;
+  }
+
+  /* ---------- Map view ---------- */
+  #view-map { width: 100%; height: calc(100vh - 49px); }
+  #map-svg { width: 100%; height: 100%; }
+  .node circle { stroke: white; stroke-width: 1.5px; cursor: pointer; }
+  .node.annotated circle { stroke: var(--accent); stroke-width: 3px; }
+  .node text { font-size: 10px; fill: var(--muted); pointer-events: none; }
+  #map-tooltip {
+    position: fixed; background: var(--text); color: white; font-size: 12px; padding: 6px 10px;
+    border-radius: 6px; pointer-events: none; display: none; z-index: 80; max-width: 220px;
+  }
+
+  /* ---------- Progress view ---------- */
+  #view-progress { width: 100%; height: calc(100vh - 49px); overflow-y: auto; padding: 28px; gap: 28px; }
+  .progress-col { flex: 1; min-width: 320px; }
+  .progress-col h2 { font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  #treemap { display: flex; flex-wrap: wrap; gap: 8px; }
+  .mode-block {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px;
+    min-width: 160px;
+  }
+  .mode-block h3 { margin: 0 0 4px; font-size: 13px; }
+  .mode-block .cnt { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+  .mode-block ul { margin: 0; padding-left: 16px; font-size: 12px; }
+  .mode-block li { margin-bottom: 3px; cursor: pointer; }
+  .mode-block li:hover { text-decoration: underline; }
+  .sugg-row {
+    display: flex; align-items: flex-start; gap: 8px; background: var(--panel); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 10px; margin-bottom: 8px; font-size: 13px;
+  }
+  .sugg-row .sq { color: var(--muted); font-style: italic; cursor: pointer; }
+  .sugg-actions { margin-left: auto; display: flex; gap: 6px; flex-shrink: 0; }
+  .sugg-actions button { font-size: 11px; padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border); cursor: pointer; background: var(--bg); }
+  #sugg-bulk { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 12px; color: var(--muted); }
+
+  /* ---------- Axial coding view ---------- */
+  #view-axial { width: 100%; height: calc(100vh - 49px); overflow: hidden; }
+  #axial-list-col { flex: 2; min-width: 0; overflow-y: auto; padding: 20px; border-right: 1px solid var(--border); }
+  #axial-pivot-col { flex: 1; min-width: 260px; max-width: 360px; overflow-y: auto; padding: 20px; }
+  #axial-list-col h2, #axial-pivot-col h2 { font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 0 0 12px; }
+  table.axial-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.axial-table th { text-align: left; font-size: 11px; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); padding: 6px 8px; }
+  table.axial-table td { padding: 6px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table.axial-table td.ax-quote { color: var(--muted); font-style: italic; max-width: 260px; }
+  table.axial-table td.ax-note { max-width: 220px; }
+  table.axial-table td.ax-sample { color: var(--muted); font-size: 11px; white-space: nowrap; cursor: pointer; }
+  table.axial-table td.ax-sample:hover { text-decoration: underline; color: var(--accent); }
+  .axial-code-input {
+    width: 100%; border: 1px solid var(--border); border-radius: 6px; padding: 5px 7px;
+    font-size: 12px; font-family: inherit; background: var(--panel);
+  }
+  .axial-code-input:focus { outline: none; border-color: var(--accent); }
+  table.pivot-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.pivot-table th { text-align: left; font-size: 11px; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); padding: 6px 4px; }
+  table.pivot-table td { padding: 6px 4px; border-bottom: 1px solid var(--border); }
+  table.pivot-table td.pv-count { text-align: right; font-weight: 600; }
+  table.pivot-table tr.pv-total td { border-top: 2px solid var(--text); border-bottom: none; font-weight: 700; }
+  .pv-bar { display: inline-block; height: 6px; background: var(--accent); border-radius: 3px; vertical-align: middle; margin-left: 6px; opacity: .55; }
+  .ax-uncat { color: var(--muted); font-style: italic; }
+  #ws-controls { display: flex; gap: 6px; align-items: center; }
+  #ws-select { font-size: 13px; padding: 5px 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--panel); max-width: 260px; }
+  .ws-btn { font-size: 12px; padding: 5px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--panel); cursor: pointer; color: var(--text); }
+  .ws-btn.primary { background: var(--accent); border-color: var(--accent); color: white; }
+  #ws-dialog { border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; max-width: 460px; width: calc(100% - 32px); }
+  #ws-dialog::backdrop { background: rgba(0,0,0,.25); }
+  #ws-dialog h2 { margin: 0 0 8px; font-size: 17px; }
+  #ws-dialog label { display: block; font-size: 13px; font-weight: 600; margin: 12px 0 0; }
+  #ws-dialog input { display: block; width: 100%; margin-top: 4px; font: inherit; font-weight: 400; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; }
+  .ws-help { font-size: 13px; color: var(--muted); line-height: 1.5; margin: 0; }
+  .ws-error { color: var(--warn); font-size: 13px; min-height: 1em; }
+  .ws-actions { display: flex; justify-content: flex-end; gap: 8px; }
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <h1 id="app-title">Gooey Essay Traces: Error Analysis for AI Evals</h1>
+  <div id="ws-controls" style="display:none">
+    <select id="ws-select" title="Switch workspace"></select>
+    <button id="ws-lock" class="ws-btn"></button>
+    <button id="ws-new" class="ws-btn">+ Add your traces</button>
+  </div>
+  <div class="tabs">
+    <button data-view="article" class="active">Article</button>
+    <button data-view="map">Map</button>
+    <button data-view="progress">Progress</button>
+    <button data-view="axial">Axial Codes</button>
+  </div>
+  <div id="progress-pill">0 / 0 annotated</div>
+  <button id="demo-reset-btn" title="Clear all highlights/annotations and pending suggestions — for recording a blank-slate demo. A backup is saved server-side first.">Reset for demo</button>
+</div>
+<div id="toast"></div>
+
+<div id="view-article" class="view active">
+  <div id="rail"></div>
+  <div id="content-scroll">
+    <div id="content-wrap">
+      <div id="article"></div>
+      <div id="margin-col"></div>
+    </div>
+  </div>
+</div>
+
+<div id="view-map" class="view">
+  <svg id="map-svg"></svg>
+  <div id="map-tooltip"></div>
+</div>
+
+<div id="view-progress" class="view" style="display:none;">
+  <div class="progress-col">
+    <h2>Failure modes</h2>
+    <div id="treemap"></div>
+  </div>
+  <div class="progress-col">
+    <h2>Agent suggestions to review</h2>
+    <div id="sugg-bulk">
+      <label><input type="checkbox" id="sugg-select-all"> Select all</label>
+      <button id="sugg-accept-sel">Accept selected</button>
+      <button id="sugg-dismiss-sel">Dismiss selected</button>
+    </div>
+    <div id="sugg-list"></div>
+  </div>
+</div>
+
+<div id="view-axial" class="view" style="display:none;">
+  <div id="axial-list-col">
+    <h2>Open codes → Axial codes</h2>
+    <table class="axial-table">
+      <thead><tr><th>Sample</th><th>Quote</th><th>Open code (note)</th><th>Axial code</th></tr></thead>
+      <tbody id="axial-tbody"></tbody>
+    </table>
+  </div>
+  <div id="axial-pivot-col">
+    <h2>Pivot: axial code occurrences</h2>
+    <table class="pivot-table">
+      <thead><tr><th>Axial code</th><th class="pv-count">Count</th></tr></thead>
+      <tbody id="pivot-tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<dialog id="ws-dialog">
+  <form method="dialog" id="ws-form">
+    <h2>Add your traces</h2>
+    <p class="ws-help">Upload a <b>.json</b> or <b>.csv</b> file of LLM traces. Each trace needs an output
+      (a field called <code>output</code>, <code>response</code>, <code>completion</code> or <code>text</code>);
+      <code>prompt</code> / <code>input</code> and <code>id</code> are optional. You get your own workspace to annotate.</p>
+    <label>Workspace name<input id="ws-name" required maxlength="80" placeholder="e.g. Acme support bot traces"></label>
+    <label>Choose a passcode<input id="ws-pass" type="password" required minlength="4" placeholder="Needed to edit later: keep it safe"></label>
+    <label>Traces file<input id="ws-file" type="file" accept=".json,.csv,application/json,text/csv" required></label>
+    <p id="ws-error" class="ws-error"></p>
+    <div class="ws-actions">
+      <button type="button" id="ws-cancel" class="ws-btn">Cancel</button>
+      <button type="submit" id="ws-create" class="ws-btn primary">Create workspace</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="popover">
+  <textarea id="popover-input" placeholder="What's wrong here? (Enter to save, Esc to cancel)"></textarea>
+  <div class="hint">Enter to save · Esc to cancel</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script>
+// ---------------- storage ----------------
+// Local mode (python3 server.py): reads/writes the JSON files through /api/*.
+// Hosted mode (HOSTED.url set): each workspace's data lives in Supabase. Anyone can read;
+// writes go through RPCs that check the workspace passcode server-side.
+const HOSTED = { url: "", key: "" };
+const IS_HOSTED = !!HOSTED.url;
+const EMPTY = { samples: [], annotations: {}, graph: { nodes: [] }, patterns: [], suggestions: [] };
+let workspaces = [], workspaceId = null;
+
+function passcodeFor(id) { try { return sessionStorage.getItem("pc_" + id); } catch (e) { return null; } }
+function rememberPasscode(id, pc) { try { sessionStorage.setItem("pc_" + id, pc); } catch (e) {} }
+function canEdit() { return !IS_HOSTED || !!passcodeFor(workspaceId); }
+
+async function sb(path, opts = {}) {
+  const r = await fetch(HOSTED.url + "/rest/v1/" + path, {
+    ...opts,
+    headers: { apikey: HOSTED.key, Authorization: "Bearer " + HOSTED.key, "Content-Type": "application/json", ...(opts.headers || {}) },
+  });
+  if (!r.ok) throw new Error((await r.json().catch(() => ({}))).message || r.statusText);
+  return r.status === 204 ? null : r.json();
+}
+const rpc = (fn, args) => sb("rpc/" + fn, { method: "POST", body: JSON.stringify(args) });
+
+// One request fetches every kind for the workspace; getJSON calls made together share it.
+let _batch = null;
+function workspaceData() {
+  if (!_batch) {
+    _batch = sb(`trace_workspace_data?workspace_id=eq.${workspaceId}&select=kind,data`)
+      .then(rows => Object.fromEntries(rows.map(r => [r.kind, r.data])));
+    setTimeout(() => { _batch = null; }, 500);
+  }
+  return _batch;
+}
+
+async function getJSON(path) {
+  if (!IS_HOSTED) { const r = await fetch(path); return r.json(); }
+  const kind = path.replace("/api/", "");
+  const all = await workspaceData();
+  return all[kind] ?? structuredClone(EMPTY[kind]);
+}
+async function postJSON(path, body) {
+  if (!IS_HOSTED) {
+    await fetch(path, { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify(body) });
+    return;
+  }
+  if (!canEdit()) { toast("View-only: unlock this workspace with its passcode to edit"); await loadAll(); return; }
+  try {
+    await rpc("save_trace_data", { p_workspace: workspaceId, p_passcode: passcodeFor(workspaceId), p_kind: path.replace("/api/", ""), p_data: body });
+  } catch (err) {
+    toast("Couldn't save: " + err.message);
+    await loadAll();
+  }
+}
+
+// ---------------- workspaces (hosted only) ----------------
+async function initWorkspaces() {
+  workspaces = await sb("trace_workspaces?select=id,name,is_example&order=is_example.desc,created_at.asc");
+  const fromUrl = new URLSearchParams(location.search).get("w");
+  const example = workspaces.find(w => w.is_example) || workspaces[0];
+  workspaceId = (workspaces.find(w => w.id === fromUrl) || example).id;
+  document.getElementById("ws-controls").style.display = "flex";
+  document.getElementById("demo-reset-btn").style.display = "none";
+  renderWorkspaceControls();
+}
+function renderWorkspaceControls() {
+  const sel = document.getElementById("ws-select");
+  sel.innerHTML = workspaces.map(w =>
+    `<option value="${w.id}">${escapeHtml(w.name)}${w.is_example ? " (example)" : ""}</option>`).join("");
+  sel.value = workspaceId;
+  const ws = workspaces.find(w => w.id === workspaceId);
+  document.getElementById("app-title").textContent = ws ? ws.name : "Error Analysis for AI Evals";
+  document.title = (ws ? ws.name + " · " : "") + "Error Analysis for AI Evals";
+  document.getElementById("ws-lock").textContent = canEdit() ? "🔓 Editing" : "🔒 View-only: unlock";
+}
+async function switchWorkspace(id) {
+  workspaceId = id; currentId = null;
+  history.replaceState(null, "", "?w=" + id);
+  renderWorkspaceControls();
+  await loadAll();
+}
+
+function parseTraces(text, fileName) {
+  let rows;
+  if (/\.csv$/i.test(fileName)) {
+    rows = Papa.parse(text, { header: true, skipEmptyLines: true }).data;
+  } else {
+    const j = JSON.parse(text);
+    rows = Array.isArray(j) ? j : (j.traces || j.data || j.records || j.samples);
+    if (!Array.isArray(rows)) throw new Error("Expected a JSON list of traces.");
+  }
+  const pick = (r, keys) => { for (const k of keys) if (r[k] != null && String(r[k]).trim()) return String(r[k]); return ""; };
+  const seen = new Set();
+  const traces = rows.map((r, i) => {
+    let id = pick(r, ["id", "trace_id", "record_id"]) || `trace_${String(i + 1).padStart(2, "0")}`;
+    while (seen.has(id)) id += "_" + i;
+    seen.add(id);
+    return { id, prompt: pick(r, ["prompt", "input", "question", "query"]), output: pick(r, ["output", "response", "completion", "answer", "text"]) };
+  }).filter(t => t.output);
+  if (!traces.length) throw new Error("No traces with an output field found.");
+  if (traces.length > 500) throw new Error("Please upload 500 traces or fewer.");
+  return traces;
+}
+
+// Same features and 2-D map layout as build_data.py, computed in the browser.
+const STOP = new Set(("a an the and or but of to in on for with as is are was were be been being this that these " +
+  "those it its their our your his her they we he she i you not no so than then thus at by from into over under " +
+  "about across after before between during without within").split(" "));
+function buildWorkspaceData(traces) {
+  const tok = t => (t.toLowerCase().match(/[a-z']+/g) || []).filter(w => !STOP.has(w) && w.length > 2);
+  const n = traces.length;
+  const docs = traces.map(t => tok(t.output));
+  const df = new Map();
+  docs.forEach(d => new Set(d).forEach(w => df.set(w, (df.get(w) || 0) + 1)));
+  const vocab = [...df.entries()].filter(([, c]) => c >= 2 && c <= Math.max(2, n * 0.8)).sort((a, b) => b[1] - a[1]).slice(0, 60).map(e => e[0]);
+  const vecs = docs.map(d => { const c = new Map(); d.forEach(w => c.set(w, (c.get(w) || 0) + 1)); return vocab.map(w => c.get(w) || 0); });
+  const cos = (a, b) => { let d = 0, na = 0, nb = 0; a.forEach((x, i) => { d += x * b[i]; na += x * x; nb += b[i] * b[i]; }); return d / ((Math.sqrt(na) || 1e-9) * (Math.sqrt(nb) || 1e-9)); };
+  const dist = vecs.map(a => vecs.map(b => 1 - cos(a, b)));
+  let seed = 42; const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const pos = traces.map(() => [rand() * 2 - 1, rand() * 2 - 1]);
+  const iters = n > 150 ? 150 : 500;
+  for (let it = 0; it < iters; it++) {
+    const g = pos.map(() => [0, 0]);
+    for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
+      if (i === j) continue;
+      const dx = pos[i][0] - pos[j][0], dy = pos[i][1] - pos[j][1];
+      const d = Math.hypot(dx, dy) || 1e-6, diff = (d - (dist[i][j] * 4 + 0.3)) / d;
+      g[i][0] += diff * dx; g[i][1] += diff * dy;
+    }
+    const step = 0.02 * Math.min(1, 10 / n);
+    pos.forEach((p, i) => { p[0] -= step * g[i][0]; p[1] -= step * g[i][1]; });
+  }
+  const cluster = new Array(n).fill(-1); let next = 0;
+  [...Array(n).keys()].sort((a, b) => dist[b].reduce((x, y) => x + y) - dist[a].reduce((x, y) => x + y)).forEach(i => {
+    let best = -1, bd = 0.35;
+    for (let j = 0; j < n; j++) if (cluster[j] >= 0 && dist[i][j] < bd) { best = j; bd = dist[i][j]; }
+    cluster[i] = best >= 0 ? cluster[best] : next++;
+  });
+  const wc = traces.map(t => (t.output.match(/\S+/g) || []).length);
+  const sorted = [...wc].sort((a, b) => a - b);
+  // Label each trace by its prompt minus the opening words every prompt shares
+  // ("Write a 300 word essay on …"), so the rail shows what's distinctive.
+  const words = traces.map(t => (t.prompt || t.output).split(/\s+/).filter(Boolean));
+  // (the opening shared by at least half the prompts; prompts without it keep theirs)
+  const prefix = [];
+  for (let k = 0; n > 1; k++) {
+    const counts = new Map();
+    words.forEach(w => { if (w.length > k + 2 && prefix.every((p, j) => w[j] === p)) counts.set(w[k], (counts.get(w[k]) || 0) + 1); });
+    const [top, c] = [...counts.entries()].sort((a, b) => b[1] - a[1])[0] || [];
+    if (!top || c < n / 2) break;
+    prefix.push(top);
+  }
+  const topicOf = (t, i) => {
+    const w = words[i], skip = prefix.every((p, j) => w[j] === p) ? prefix.length : 0;
+    const label = w.slice(skip, skip + 5).join(" ");
+    return label.length > 40 ? label.slice(0, 38) + "…" : label;
+  };
+  const samples = traces.map((t, i) => ({
+    id: t.id, prompt: t.prompt, output: t.output, topic: topicOf(t, i), word_count: wc[i], claimed_count: null,
+    is_continuation: false, n_chips: 0, cluster: cluster[i],
+    flags: n > 1 && wc[i] === sorted[n - 1] ? [`longest output (${wc[i]}w)`] : (n > 1 && wc[i] === sorted[0] ? [`shortest output (${wc[i]}w)`] : []),
+  }));
+  const graph = { nodes: samples.map((s, i) => ({ id: s.id, x: pos[i][0], y: pos[i][1], cluster: s.cluster, topic: s.topic })) };
+  return { samples, graph };
+}
+
+function setupWorkspaceUI() {
+  document.getElementById("ws-select").addEventListener("change", e => switchWorkspace(e.target.value));
+  document.getElementById("ws-lock").addEventListener("click", async () => {
+    if (canEdit()) { toast("You can edit this workspace"); return; }
+    const pc = window.prompt("Passcode for this workspace:");
+    if (!pc) return;
+    try {
+      if (await rpc("check_trace_passcode", { p_workspace: workspaceId, p_passcode: pc })) {
+        rememberPasscode(workspaceId, pc); renderWorkspaceControls(); toast("Unlocked: you can now annotate");
+      } else toast("Wrong passcode");
+    } catch (err) { toast("Couldn't check passcode: " + err.message); }
+  });
+  const dlg = document.getElementById("ws-dialog");
+  document.getElementById("ws-new").addEventListener("click", () => { document.getElementById("ws-error").textContent = ""; dlg.showModal(); });
+  document.getElementById("ws-cancel").addEventListener("click", () => dlg.close());
+  document.getElementById("ws-form").addEventListener("submit", async e => {
+    e.preventDefault();
+    const err = document.getElementById("ws-error"), btn = document.getElementById("ws-create");
+    const name = document.getElementById("ws-name").value.trim(), pc = document.getElementById("ws-pass").value;
+    const file = document.getElementById("ws-file").files[0];
+    try {
+      btn.disabled = true; btn.textContent = "Creating…"; err.textContent = "";
+      const { samples: sm, graph: gr } = buildWorkspaceData(parseTraces(await file.text(), file.name));
+      const id = await rpc("create_trace_workspace", { p_name: name, p_passcode: pc, p_samples: sm, p_graph: gr });
+      rememberPasscode(id, pc);
+      workspaces.push({ id, name, is_example: false });
+      dlg.close(); document.getElementById("ws-form").reset();
+      await switchWorkspace(id);
+      toast(`Created: bookmark this page's link to come back to it`);
+    } catch (ex) { err.textContent = ex.message; }
+    finally { btn.disabled = false; btn.textContent = "Create workspace"; }
+  });
+}
+
+let samples = [], annotations = {}, graph = {nodes: []}, patterns = [], suggestions = [];
+let currentId = null;
+let pendingRange = null; // {block, start, end}
+
+const HUES = [8, 28, 48, 95, 150, 190, 220, 260, 300, 330];
+function topicColor(id) {
+  let h = 0; for (const c of id) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  return `hsl(${HUES[h % HUES.length]} 55% 42%)`;
+}
+function clusterColor(c) { return `hsl(${(c * 47) % 360} 60% 55%)`; }
+
+
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2600);
+}
+
+// ---------------- demo reset ----------------
+document.getElementById("demo-reset-btn").addEventListener("click", async () => {
+  const ok = window.confirm(
+    "Clear ALL annotation highlights and dismiss all pending agent suggestions, " +
+    "so every trace renders blank for the demo?\n\n" +
+    "Your current annotations & suggestions are backed up server-side first " +
+    "(error_discovery_data/backups/) and can be restored afterward."
+  );
+  if (!ok) return;
+  const r = await fetch("/api/reset-demo", { method: "POST" });
+  const result = await r.json();
+  toast(`Reset for demo — backup saved (${result.backup_timestamp})`);
+  await loadAll();
+});
+
+// ---------------- loading ----------------
+async function loadAll() {
+  [samples, annotations, graph, patterns, suggestions] = await Promise.all([
+    getJSON("/api/samples"), getJSON("/api/annotations"), getJSON("/api/graph"),
+    getJSON("/api/patterns"), getJSON("/api/suggestions"),
+  ]);
+  if (!currentId && samples.length) currentId = samples[0].id;
+  renderRail();
+  renderArticle();
+  renderProgressPill();
+  renderMap();
+  renderProgressView();
+  renderAxialView();
+}
+
+function renderProgressPill() {
+  const total = samples.length;
+  const done = samples.filter(s => (annotations[s.id] || []).length > 0).length;
+  document.getElementById("progress-pill").textContent = `${done} / ${total} annotated`;
+}
+
+// ---------------- rail ----------------
+function renderRail() {
+  const rail = document.getElementById("rail");
+  rail.innerHTML = "";
+  for (const s of samples) {
+    const div = document.createElement("div");
+    div.className = "rail-item" + (s.id === currentId ? " active" : "");
+    const done = (annotations[s.id] || []).length > 0;
+    div.innerHTML = `<span class="rail-dot${done ? " done" : ""}"></span><b>${escapeHtml(s.topic)}</b>` +
+      (s.flags.length ? ` <span title="${escapeHtml(s.flags.join('; '))}">⚑</span>` : "") +
+      `<div class="rt">${escapeHtml(s.id)} · ${s.word_count}w</div>`;
+    div.onclick = () => { currentId = s.id; renderRail(); renderArticle(); };
+    rail.appendChild(div);
+  }
+}
+
+// ---------------- block parsing ----------------
+function splitBlocks(text) {
+  const blocks = [];
+  const re = /\n{2,}/g;
+  let last = 0, m;
+  const push = (rawStart, rawEnd) => {
+    const seg = text.slice(rawStart, rawEnd);
+    const trimmedStart = rawStart + (seg.length - seg.trimStart().length);
+    const trimmed = seg.trim();
+    if (!trimmed) return;
+
+    // The model separates a title from its first body line with a single "\n"
+    // (not a blank line), so it lands in the same outer block. Split it out here
+    // so the title renders as a heading instead of running into the paragraph.
+    const nlIdx = trimmed.indexOf("\n");
+    const hasPriorTitle = blocks.some(b => b.type === "title");
+    if (!hasPriorTitle && nlIdx > 0) {
+      const firstLine = trimmed.slice(0, nlIdx).trim();
+      const rest = trimmed.slice(nlIdx + 1);
+      const looksLikeTitle = firstLine.length < 100 && !/[.!?]$/.test(firstLine) && !/^Here'?s\b/.test(firstLine);
+      if (looksLikeTitle && rest.trim().length > 0) {
+        const titleStart = trimmedStart, titleEnd = titleStart + firstLine.length;
+        blocks.push({ start: titleStart, end: titleEnd, text: firstLine, type: "title" });
+        const restLeading = rest.length - rest.trimStart().length;
+        const restTrimmed = rest.trim();
+        const restStart = titleStart + nlIdx + 1 + restLeading;
+        blocks.push({ start: restStart, end: restStart + restTrimmed.length, text: restTrimmed, type: "body" });
+        return;
+      }
+    }
+
+    const start = trimmedStart, end = trimmedStart + trimmed.length;
+    blocks.push({ start, end, text: trimmed, type: classify(trimmed, blocks) });
+  };
+  while ((m = re.exec(text)) !== null) { push(last, m.index); last = re.lastIndex; }
+  push(last, text.length);
+  return blocks;
+}
+function classify(t, prior) {
+  if (/^[✂✈❤✏➕\u{1F300}-\u{1FAFF}☀-➿]/u.test(t)) return "chip";
+  if (t.startsWith("≈")) return "meta";
+  if (/^Here'?s\b/.test(t) && t.length < 140 && !t.includes("\n")) return "intro";
+  const hasTitle = prior.some(b => b.type === "title");
+  if (!hasTitle && t.length < 100 && !t.includes("\n") && !/[.!?]$/.test(t)) return "title";
+  return "body";
+}
+
+// ---------------- article rendering ----------------
+function getSample(id) { return samples.find(s => s.id === id); }
+
+function renderArticle() {
+  const s = getSample(currentId);
+  if (!s) return;
+  const blocks = splitBlocks(s.output);
+  const article = document.getElementById("article");
+  article.innerHTML = "";
+
+  const header = document.createElement("div");
+  header.className = "rec-header";
+  header.innerHTML =
+    `<span class="topic-badge" style="background:${topicColor(s.id)}">${escapeHtml(s.topic)}</span>` +
+    s.flags.map(f => `<span class="flag-badge">${escapeHtml(f)}</span>`).join("") +
+    (s.is_continuation ? `<span class="flag-badge" style="background:#eef2fb;color:#3a5ba0;border-color:#cdd8f0">continuation prompt</span>` : "") +
+    `<div class="prompt-line"><b>Prompt:</b> ${escapeHtml(s.prompt)}</div>`;
+  article.appendChild(header);
+
+  const anns = (annotations[s.id] || []).map(a => ({...a, kind: "ann"}));
+  const suggs = suggestions.filter(sg => sg.record_id === s.id && sg.status !== "dismissed" && sg.status !== "accepted")
+    .map(sg => ({...sg, kind: "sugg", note: `[${sg.mode}]`}));
+  const markers = [...anns, ...suggs].sort((a,b) => a.start - b.start);
+
+  const chipRowHolder = { row: null };
+  for (const b of blocks) {
+    if (b.type === "chip") {
+      if (!chipRowHolder.row) {
+        chipRowHolder.row = document.createElement("div");
+        chipRowHolder.row.className = "chip-row";
+        article.appendChild(chipRowHolder.row);
+      }
+      const el = document.createElement("div");
+      el.className = "block chip";
+      el.textContent = b.text;
+      chipRowHolder.row.appendChild(el);
+      continue;
+    }
+    chipRowHolder.row = null;
+    const el = document.createElement("div");
+    el.className = "block " + b.type;
+    el.dataset.start = b.start;
+    el.dataset.end = b.end;
+    buildBlockContent(el, b, markers);
+    article.appendChild(el);
+  }
+
+  article.onmouseup = onSelectionUp;
+  renderMarginNotes(s.id, blocks);
+}
+
+function buildBlockContent(el, block, markers) {
+  const relevant = markers.filter(m => m.start < block.end && m.end > block.start)
+    .map(m => ({...m, s: Math.max(m.start, block.start) - block.start, e: Math.min(m.end, block.end) - block.start}))
+    .sort((a,b) => a.s - b.s);
+  let pos = 0;
+  const text = block.text;
+  for (const m of relevant) {
+    if (m.s > pos) el.appendChild(document.createTextNode(text.slice(pos, m.s)));
+    const mark = document.createElement("mark");
+    mark.className = m.kind === "ann" ? "ann" : "sugg";
+    mark.dataset.id = m.id;
+    mark.dataset.kind = m.kind;
+    mark.textContent = text.slice(m.s, m.e);
+    el.appendChild(mark);
+    pos = m.e;
+  }
+  if (pos < text.length) el.appendChild(document.createTextNode(text.slice(pos)));
+}
+
+function escapeHtml(s) {
+  const d = document.createElement("div"); d.textContent = s; return d.innerHTML;
+}
+
+// ---------------- offset math ----------------
+function textOffsetWithin(container, node, offset) {
+  let total = 0, found = false;
+  function walk(n) {
+    if (found) return;
+    if (n === node) { total += offset; found = true; return; }
+    if (n.nodeType === Node.TEXT_NODE) { total += n.textContent.length; return; }
+    for (const child of n.childNodes) walk(child);
+  }
+  walk(container);
+  return total;
+}
+
+function onSelectionUp(e) {
+  const sel = window.getSelection();
+  if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
+  if (!canEdit()) { toast("View-only: click “Unlock” and enter the passcode to annotate"); return; }
+  const range = sel.getRangeAt(0);
+  let blockEl = range.startContainer.nodeType === Node.ELEMENT_NODE ? range.startContainer : range.startContainer.parentElement;
+  blockEl = blockEl.closest(".block");
+  const endBlockEl = (range.endContainer.nodeType === Node.ELEMENT_NODE ? range.endContainer : range.endContainer.parentElement).closest(".block");
+  if (!blockEl || blockEl !== endBlockEl) return; // MVP: single-block selections only
+  if (!blockEl.dataset.start) return;
+
+  const localStart = textOffsetWithin(blockEl, range.startContainer, range.startOffset);
+  const localEnd = textOffsetWithin(blockEl, range.endContainer, range.endOffset);
+  const start = parseInt(blockEl.dataset.start) + localStart;
+  const end = parseInt(blockEl.dataset.start) + localEnd;
+  if (end <= start) return;
+
+  const highlightSpan = document.createElement("mark");
+  highlightSpan.className = "pending-highlight";
+  try { range.surroundContents(highlightSpan); } catch (err) { return; }
+
+  pendingRange = { start, end };
+  const rect = highlightSpan.getBoundingClientRect();
+  const pop = document.getElementById("popover");
+  pop.style.display = "block";
+  pop.style.top = (rect.bottom + window.scrollY + 6) + "px";
+  pop.style.left = Math.min(rect.left + window.scrollX, window.innerWidth - 300) + "px";
+  const input = document.getElementById("popover-input");
+  input.value = "";
+  input.focus();
+  window._pendingSpan = highlightSpan;
+}
+
+function cancelPending() {
+  const pop = document.getElementById("popover");
+  pop.style.display = "none";
+  if (window._pendingSpan) {
+    const span = window._pendingSpan;
+    span.replaceWith(document.createTextNode(span.textContent));
+    window._pendingSpan = null;
+  }
+  pendingRange = null;
+}
+
+document.getElementById("popover-input").addEventListener("keydown", (e) => {
+  if (e.key === "Escape") { cancelPending(); }
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    saveAnnotation(e.target.value.trim());
+  }
+});
+document.addEventListener("mousedown", (e) => {
+  const pop = document.getElementById("popover");
+  if (pop.style.display === "block" && !pop.contains(e.target) && !e.target.closest("mark")) {
+    cancelPending();
+  }
+});
+
+async function saveAnnotation(note) {
+  if (!note || !pendingRange) { cancelPending(); return; }
+  const s = getSample(currentId);
+  const quote = s.output.slice(pendingRange.start, pendingRange.end);
+  const ann = { id: "a_" + Date.now() + "_" + Math.floor(Math.random()*1000), start: pendingRange.start, end: pendingRange.end, quote, note, created_at: new Date().toISOString() };
+  if (!annotations[currentId]) annotations[currentId] = [];
+  annotations[currentId].push(ann);
+  await postJSON("/api/annotations", annotations);
+  document.getElementById("popover").style.display = "none";
+  window._pendingSpan = null;
+  pendingRange = null;
+  renderArticle(); renderRail(); renderProgressPill();
+}
+
+function deleteAnnotation(id) {
+  const list = annotations[currentId] || [];
+  annotations[currentId] = list.filter(a => a.id !== id);
+  postJSON("/api/annotations", annotations);
+  renderArticle(); renderRail(); renderProgressPill();
+}
+
+async function acceptSuggestion(sgLike) {
+  const sg = suggestions.find(s => s.id === sgLike.id) || sgLike;
+  if (!annotations[sg.record_id]) annotations[sg.record_id] = [];
+  annotations[sg.record_id].push({ id: "a_" + Date.now() + "_" + Math.floor(Math.random()*1000), start: sg.start, end: sg.end, quote: sg.text, note: `[${sg.mode}] accepted suggestion`, created_at: new Date().toISOString() });
+  sg.status = "accepted";
+  await Promise.all([postJSON("/api/annotations", annotations), postJSON("/api/suggestions", suggestions)]);
+  renderArticle(); renderRail(); renderProgressPill(); renderProgressView();
+}
+async function dismissSuggestion(sgLike) {
+  const sg = suggestions.find(s => s.id === sgLike.id) || sgLike;
+  sg.status = "dismissed";
+  await postJSON("/api/suggestions", suggestions);
+  renderArticle(); renderProgressView();
+}
+
+// ---------------- margin notes ----------------
+function renderMarginNotes(recordId, blocks) {
+  const col = document.getElementById("margin-col");
+  col.innerHTML = "";
+  const anns = (annotations[recordId] || []).map(a => ({...a, kind:"ann"}));
+  const suggs = suggestions.filter(sg => sg.record_id === recordId && sg.status !== "dismissed" && sg.status !== "accepted").map(sg => ({...sg, kind:"sugg", note: sg.mode, quote: sg.text}));
+  const all = [...anns, ...suggs].sort((a,b) => a.start - b.start);
+  const colRect = col.getBoundingClientRect();
+  let lastBottom = 0;
+  for (const item of all) {
+    const markEl = document.querySelector(`mark[data-id="${item.id}"]`);
+    if (!markEl) continue;
+    const mRect = markEl.getBoundingClientRect();
+    let top = mRect.top - colRect.top;
+    if (top < lastBottom) top = lastBottom;
+    const note = document.createElement("div");
+    note.className = "margin-note" + (item.kind === "sugg" ? " suggestion" : "");
+    note.style.top = top + "px";
+    note.dataset.for = item.id;
+    note.innerHTML =
+      (item.kind === "sugg" ? `<span class="tag">agent suggestion</span><br>` : "") +
+      `<span class="quote">"${escapeHtml((item.quote||"").slice(0,80))}"</span>` +
+      `<span class="note-text">${escapeHtml(item.note||"")}</span>`;
+    const actions = document.createElement("div");
+    actions.className = "mn-actions";
+    if (item.kind === "ann") {
+      const del = document.createElement("button"); del.textContent = "Delete";
+      del.onclick = () => deleteAnnotation(item.id);
+      actions.appendChild(del);
+    } else {
+      const acc = document.createElement("button"); acc.textContent = "Accept";
+      acc.onclick = () => acceptSuggestion(item);
+      const dis = document.createElement("button"); dis.textContent = "Dismiss";
+      dis.onclick = () => dismissSuggestion(item);
+      actions.appendChild(acc); actions.appendChild(dis);
+    }
+    note.appendChild(actions);
+    note.addEventListener("mouseenter", () => markEl.classList.add("hovered"));
+    note.addEventListener("mouseleave", () => markEl.classList.remove("hovered"));
+    markEl.addEventListener("mouseenter", () => note.classList.add("hovered-src"));
+    col.appendChild(note);
+    const h = note.getBoundingClientRect().height;
+    lastBottom = top + h + 10;
+  }
+}
+
+// ---------------- map view ----------------
+function renderMap() {
+  const svg = document.getElementById("map-svg");
+  svg.innerHTML = "";
+  const w = svg.clientWidth || 900, h = svg.clientHeight || 600;
+  const xs = graph.nodes.map(n => n.x), ys = graph.nodes.map(n => n.y);
+  const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+  const pad = 60;
+  const sx = x => pad + (x - minX) / (maxX - minX || 1) * (w - 2*pad);
+  const sy = y => pad + (y - minY) / (maxY - minY || 1) * (h - 2*pad);
+  const tooltip = document.getElementById("map-tooltip");
+
+  for (const n of graph.nodes) {
+    const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    const annotated = (annotations[n.id] || []).length > 0;
+    g.setAttribute("class", "node" + (annotated ? " annotated" : ""));
+    const cx = sx(n.x), cy = sy(n.y);
+    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    circle.setAttribute("cx", cx); circle.setAttribute("cy", cy); circle.setAttribute("r", annotated ? 10 : 8);
+    circle.setAttribute("fill", annotated ? "#e07b3f" : clusterColor(n.cluster));
+    g.appendChild(circle);
+    const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    label.setAttribute("x", cx); label.setAttribute("y", cy - 14); label.setAttribute("text-anchor", "middle");
+    label.textContent = n.topic.length > 18 ? n.topic.slice(0,16) + "…" : n.topic;
+    g.appendChild(label);
+    g.addEventListener("mouseenter", (e) => {
+      const s = getSample(n.id);
+      tooltip.style.display = "block";
+      tooltip.innerHTML = `<b>${escapeHtml(n.topic)}</b><br>${s.word_count}w · ${(annotations[n.id]||[]).length} notes`;
+    });
+    g.addEventListener("mousemove", (e) => { tooltip.style.left = e.clientX + 14 + "px"; tooltip.style.top = e.clientY + 10 + "px"; });
+    g.addEventListener("mouseleave", () => tooltip.style.display = "none");
+    g.addEventListener("click", () => {
+      currentId = n.id;
+      switchView("article");
+      renderRail(); renderArticle();
+    });
+    svg.appendChild(g);
+  }
+}
+
+// ---------------- progress view ----------------
+function renderProgressView() {
+  const tm = document.getElementById("treemap");
+  tm.innerHTML = "";
+  if (!patterns.length) {
+    tm.innerHTML = `<div style="color:var(--muted);font-size:13px;">No failure modes identified yet. Keep annotating — patterns will appear here.</div>`;
+  }
+  for (const p of patterns) {
+    const block = document.createElement("div");
+    block.className = "mode-block";
+    block.style.flexGrow = Math.max(1, p.count || 1);
+    block.innerHTML = `<h3>${escapeHtml(p.name)}</h3><div class="cnt">${p.count || 0} note(s) — ${escapeHtml(p.description||"")}</div>`;
+    const ul = document.createElement("ul");
+    for (const q of (p.example_quotes || [])) {
+      const li = document.createElement("li");
+      li.textContent = q.length > 70 ? q.slice(0,68) + "…" : q;
+      ul.appendChild(li);
+    }
+    block.appendChild(ul);
+    tm.appendChild(block);
+  }
+
+  const list = document.getElementById("sugg-list");
+  list.innerHTML = "";
+  const pending = suggestions.filter(sg => sg.status !== "dismissed" && sg.status !== "accepted");
+  for (const sg of pending) {
+    const row = document.createElement("div");
+    row.className = "sugg-row";
+    row.innerHTML = `<input type="checkbox" class="sugg-check" data-id="${escapeHtml(sg.id)}">` +
+      `<div><b>${escapeHtml(sg.mode)}</b><br><span class="sq">"${escapeHtml(sg.text.slice(0,90))}"</span> <span style="color:var(--muted)">— ${escapeHtml(sg.record_id)}</span></div>`;
+    const actions = document.createElement("div");
+    actions.className = "sugg-actions";
+    const acc = document.createElement("button"); acc.textContent = "Accept"; acc.onclick = () => acceptSuggestion(sg);
+    const dis = document.createElement("button"); dis.textContent = "Dismiss"; dis.onclick = () => dismissSuggestion(sg);
+    actions.appendChild(acc); actions.appendChild(dis);
+    row.appendChild(actions);
+    row.querySelector(".sq").onclick = () => { currentId = sg.record_id; switchView("article"); renderRail(); renderArticle(); };
+    list.appendChild(row);
+  }
+}
+document.getElementById("sugg-select-all").addEventListener("change", (e) => {
+  document.querySelectorAll(".sugg-check").forEach(cb => cb.checked = e.target.checked);
+});
+document.getElementById("sugg-accept-sel").addEventListener("click", () => {
+  const ids = [...document.querySelectorAll(".sugg-check:checked")].map(cb => cb.dataset.id);
+  for (const id of ids) { const sg = suggestions.find(s => s.id === id); if (sg) acceptSuggestion(sg); }
+});
+document.getElementById("sugg-dismiss-sel").addEventListener("click", () => {
+  const ids = [...document.querySelectorAll(".sugg-check:checked")].map(cb => cb.dataset.id);
+  for (const id of ids) { const sg = suggestions.find(s => s.id === id); if (sg) dismissSuggestion(sg); }
+});
+
+// ---------------- axial coding view ----------------
+function flattenOpenCodes() {
+  const rows = [];
+  for (const s of samples) {
+    for (const a of (annotations[s.id] || [])) rows.push({ sampleId: s.id, topic: s.topic, ann: a });
+  }
+  rows.sort((r1, r2) => (r1.ann.created_at || "").localeCompare(r2.ann.created_at || ""));
+  return rows;
+}
+
+function renderAxialView() {
+  renderAxialList();
+  renderAxialPivot();
+}
+
+function renderAxialList() {
+  const tbody = document.getElementById("axial-tbody");
+  tbody.innerHTML = "";
+  for (const row of flattenOpenCodes()) {
+    const tr = document.createElement("tr");
+    const sampleTd = document.createElement("td");
+    sampleTd.className = "ax-sample";
+    sampleTd.textContent = row.topic || row.sampleId;
+    sampleTd.title = "Jump to this sample";
+    sampleTd.onclick = () => { currentId = row.sampleId; switchView("article"); renderRail(); renderArticle(); };
+    const quoteTd = document.createElement("td");
+    quoteTd.className = "ax-quote";
+    quoteTd.textContent = "“" + (row.ann.quote || "").slice(0, 90) + "”";
+    const noteTd = document.createElement("td");
+    noteTd.className = "ax-note";
+    noteTd.textContent = row.ann.note || "";
+    const axTd = document.createElement("td");
+    const select = document.createElement("select");
+    select.className = "axial-code-input";
+    const failureModeNames = patterns.map(p => p.name);
+    const optionNames = new Set(failureModeNames);
+    if (row.ann.axial_code) optionNames.add(row.ann.axial_code); // preserve a code no longer in patterns.json
+    select.innerHTML = `<option value="">— uncategorized —</option>` +
+      [...optionNames].map(name => `<option value="${escapeHtml(name)}">${escapeHtml(name)}</option>`).join("") +
+      `<option value="__new__">+ New failure mode…</option>`;
+    select.value = row.ann.axial_code || "";
+    select.addEventListener("change", async () => {
+      if (select.value !== "__new__") return setAxialCode(row.sampleId, row.ann.id, select.value);
+      const name = (window.prompt("Name the new failure mode:") || "").trim();
+      if (!name) { select.value = row.ann.axial_code || ""; return; }
+      if (!patterns.some(p => p.name === name)) {
+        patterns.push({ name, description: "", count: 0, example_ids: [], example_quotes: [] });
+        await postJSON("/api/patterns", patterns);
+      }
+      await setAxialCode(row.sampleId, row.ann.id, name);
+      renderAxialList();
+    });
+    axTd.appendChild(select);
+    tr.appendChild(sampleTd); tr.appendChild(quoteTd); tr.appendChild(noteTd); tr.appendChild(axTd);
+    tbody.appendChild(tr);
+  }
+}
+
+async function setAxialCode(sampleId, annId, value) {
+  const list = annotations[sampleId] || [];
+  const ann = list.find(a => a.id === annId);
+  if (!ann) return;
+  if (value) ann.axial_code = value; else delete ann.axial_code;
+  await postJSON("/api/annotations", annotations);
+  renderAxialPivot();
+}
+
+function renderAxialPivot() {
+  const tbody = document.getElementById("pivot-tbody");
+  tbody.innerHTML = "";
+  const counts = new Map();
+  for (const row of flattenOpenCodes()) {
+    const code = (row.ann.axial_code || "").trim();
+    const key = code || "(uncategorized)";
+    counts.set(key, (counts.get(key) || 0) + 1);
+  }
+  const entries = [...counts.entries()].sort((a, b) => b[1] - a[1]);
+  const total = entries.reduce((sum, [, c]) => sum + c, 0);
+  const maxCount = entries.length ? entries[0][1] : 1;
+  for (const [code, count] of entries) {
+    const tr = document.createElement("tr");
+    const nameTd = document.createElement("td");
+    if (code === "(uncategorized)") nameTd.innerHTML = `<span class="ax-uncat">${code}</span>`;
+    else nameTd.textContent = code;
+    const countTd = document.createElement("td");
+    countTd.className = "pv-count";
+    countTd.innerHTML = `${count}<span class="pv-bar" style="width:${Math.max(6, count / maxCount * 60)}px"></span>`;
+    tr.appendChild(nameTd); tr.appendChild(countTd);
+    tbody.appendChild(tr);
+  }
+  const totalTr = document.createElement("tr");
+  totalTr.className = "pv-total";
+  totalTr.innerHTML = `<td>Grand Total</td><td class="pv-count">${total}</td>`;
+  tbody.appendChild(totalTr);
+}
+
+// ---------------- view switching ----------------
+function switchView(name) {
+  document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("active", b.dataset.view === name));
+  document.getElementById("view-article").style.display = name === "article" ? "flex" : "none";
+  document.getElementById("view-map").style.display = name === "map" ? "flex" : "none";
+  document.getElementById("view-progress").style.display = name === "progress" ? "flex" : "none";
+  document.getElementById("view-axial").style.display = name === "axial" ? "flex" : "none";
+  if (name === "map") renderMap();
+  if (name === "progress") renderProgressView();
+  if (name === "axial") renderAxialView();
+}
+document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => switchView(b.dataset.view)));
+
+// ---------------- polling ----------------
+let lastSuggCount = 0, lastPatternCount = 0, lastSampleCount = 0;
+async function poll() {
+  const [newSamples, newSuggestions, newPatterns] = await Promise.all([
+    getJSON("/api/samples"), getJSON("/api/suggestions"), getJSON("/api/patterns"),
+  ]);
+  if (newSamples.length !== samples.length) { toast(`${newSamples.length - samples.length} new sample(s) added`); samples = newSamples; renderRail(); }
+  if (newSuggestions.length !== suggestions.length) { toast(`${newSuggestions.length - suggestions.length} new suggestion(s)`); suggestions = newSuggestions; renderArticle(); renderProgressView(); }
+  if (JSON.stringify(newPatterns) !== JSON.stringify(patterns)) { patterns = newPatterns; renderProgressView(); renderAxialView(); }
+}
+setInterval(poll, IS_HOSTED ? 10000 : 3000);
+
+(async () => {
+  if (IS_HOSTED) { setupWorkspaceUI(); await initWorkspaces(); }
+  await loadAll();
+})();
+</script>
+</body>
+</html>

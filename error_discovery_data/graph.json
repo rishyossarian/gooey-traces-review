@@ -1,0 +1,74 @@
+{
+  "nodes": [
+    {
+      "id": "trace_01",
+      "x": 0.04017779304935527,
+      "y": -1.645485542814784,
+      "cluster": 4,
+      "topic": "low-resource languages"
+    },
+    {
+      "id": "trace_02",
+      "x": -1.2165747009940424,
+      "y": -1.8985878844278539,
+      "cluster": 0,
+      "topic": "sovereign stack"
+    },
+    {
+      "id": "trace_03",
+      "x": 1.397711693010404,
+      "y": 0.2368565949896374,
+      "cluster": 6,
+      "topic": "low-code"
+    },
+    {
+      "id": "trace_04",
+      "x": 1.0215412240900865,
+      "y": -1.8170581877839684,
+      "cluster": 5,
+      "topic": "orchestration / vendor-agnostic"
+    },
+    {
+      "id": "trace_05",
+      "x": 1.2287777486896256,
+      "y": -0.5091709863295728,
+      "cluster": 6,
+      "topic": "measurable impact & M&E"
+    },
+    {
+      "id": "trace_06",
+      "x": -1.2816108120179064,
+      "y": 0.7067997284092413,
+      "cluster": 3,
+      "topic": "Beyond Bias"
+    },
+    {
+      "id": "trace_07",
+      "x": -1.6087990178720277,
+      "y": -0.7606710374174281,
+      "cluster": 2,
+      "topic": "open-source"
+    },
+    {
+      "id": "trace_08",
+      "x": -0.3144645270700222,
+      "y": 1.3806228296383003,
+      "cluster": 1,
+      "topic": "team"
+    },
+    {
+      "id": "trace_09",
+      "x": 0.35604455001752416,
+      "y": 0.4776354257337607,
+      "cluster": 6,
+      "topic": "agriculture"
+    },
+    {
+      "id": "trace_10",
+      "x": 0.15711240783029437,
+      "y": -0.39782914837916006,
+      "cluster": 6,
+      "topic": "health & education"
+    }
+  ]
+}

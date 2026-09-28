@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+error_discovery_data/backups/
+.DS_Store

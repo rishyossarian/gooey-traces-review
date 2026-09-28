@@ -1,0 +1,251 @@
+[
+  {
+    "name": "X-not-Y contrastive framing (AI writing tell)",
+    "description": "Cliche contrastive framing in either order \u2014 \"not X, it is Y\" or \"X, not Y\" \u2014 a well-known LLM prose tic. Background scan confirmed instances in 10/10 essays (31 total occurrences) \u2014 this is a near-universal tic across the whole corpus, not isolated to one essay.",
+    "count": 5,
+    "example_ids": [
+      "trace_01",
+      "trace_03",
+      "trace_04",
+      "trace_05",
+      "trace_06"
+    ],
+    "example_quotes": [
+      "The most consequential gap in artificial intelligence today is not capability \u2014 it is coverage.",
+      "The scarcest resource in global impact work is not ambition \u2014 it is engineering capacity.",
+      "The model is a parameter inside the recipe, not the foundation beneath it.",
+      "the question is not whether it tops a general leaderboard but whether it improves this metric, on this task, in this language",
+      "This is not a bug to be patched. It is a question about who participates in building the systems."
+    ]
+  },
+  {
+    "name": "Run-on / overlong sentences",
+    "description": "Sentences overloaded with multiple independent clauses (often stitched with em-dashes or colons) that should be split \u2014 readers lose the thread or the sentence just runs too long. Background scan found 39 total occurrences across all 10 essays \u2014 near-universal.",
+    "count": 6,
+    "example_ids": [
+      "trace_01",
+      "trace_02",
+      "trace_04",
+      "trace_05",
+      "trace_05",
+      "trace_06"
+    ],
+    "example_quotes": [
+      "We evaluate the AI workflow \u2014 a human-readable chain of prompts, abstracted model calls, retrieval documents and tool calls, paired with use-case-specific \"golden\" input and output datasets \u2014 rather than an abstract model score",
+      "Ministries, universities and impact organisations... share a concern: they do not want their data... \u2014 and they do not want a change in geopolitics to sever access to tools their frontline services now depend on.",
+      "Choosing a model is a single decision; wiring prompts, retrieval, tool calls, channels, analytics and billing around that model is a permanent commitment (38 words, one sentence)",
+      "AI has made the problem worse, not better: it is now trivially easy to ship something that looks impressive in a demo and impossible, six months later, to say whether it actually worked.",
+      "Every workflow ships with built-in dashboards covering impact, usage and NPS, so the questions a funder asks...",
+      "Rather than treating bias as a technical parameter to be tuned by engineers, the initiative reimagines generative AI through participatory practice..."
+    ]
+  },
+  {
+    "name": "Punctuation-as-crutch overuse (em-dashes, colons)",
+    "description": "Em-dashes and colons used at a much higher frequency than natural prose (4-9 em-dashes and 2-5 colons per ~300-word essay) \u2014 classic AI-writing stylistic tell. Confirmed by direct computation across all 10 essays: 4-9 em-dashes and 2-5 colons each \u2014 consistently elevated, no exceptions.",
+    "count": 2,
+    "example_ids": [
+      "trace_01",
+      "trace_02"
+    ],
+    "example_quotes": [
+      "too many em dashes",
+      "too many :"
+    ]
+  },
+  {
+    "name": "Word count exceeds requested limit",
+    "description": "Prompt asks for a \"300 word essay\" but the model both claims and delivers more (e.g. \u2248310 claimed here; actual body is 339 words) \u2014 instruction-following miss on an explicit constraint. Confirmed by direct computation: ALL 10/10 essays exceed the requested 300 words (by 3 to 71 words).",
+    "count": 4,
+    "example_ids": [
+      "trace_01",
+      "trace_02",
+      "trace_05",
+      "trace_08"
+    ],
+    "example_quotes": [
+      "\u2248310 words",
+      "\u2248305 words (trace_02, actual body 319 words)",
+      "\u2248310 words (trace_05)",
+      "\u2248305 words claimed, actual 371 words (trace_08 \u2014 largest gap in the set)"
+    ]
+  },
+  {
+    "name": "Punctuation inconsistency in rhetorical question chains",
+    "description": "A question mark ends a clause mid-sentence (e.g. \"...how good is it? but where does it run...\") without capitalizing the next word, leaving it ambiguous whether it is one sentence or two. Background scan confirmed this is an isolated instance \u2014 only 1 occurrence in the whole 10-essay corpus (trace_02).",
+    "count": 1,
+    "example_ids": [
+      "trace_02"
+    ],
+    "example_quotes": [
+      "the decisive question about an AI system is no longer how good is it? but where does it run, and who can switch it off?"
+    ]
+  },
+  {
+    "name": "Redundant / circular phrasing",
+    "description": "Restates the same idea with overlapping words rather than adding information, e.g. \"remain within national jurisdiction where policy or law requires it\" (jurisdiction and policy/law overlap). Background scan found additional instances in trace_06 and trace_07 (recurring: the 'Digital Public Good(s)' certification phrase repeats near-identically across multiple essays).",
+    "count": 4,
+    "example_ids": [
+      "trace_02",
+      "trace_02",
+      "trace_07",
+      "trace_09"
+    ],
+    "example_quotes": [
+      "inference and data can remain within national jurisdiction where policy or law requires it",
+      "in certification as a Digital Public Good with the Digital Public Goods Alliance",
+      "we are currently in certification with the Digital Public Goods Alliance to be recognised as a Digital Public Good",
+      "grounded, real-world scenarios"
+    ]
+  },
+  {
+    "name": "Staccato-then-sprawl sentence rhythm",
+    "description": "A very short punchy sentence is immediately followed by a long, list-heavy sentence \u2014 a repeating rhythmic pattern rather than natural variation. Background scan found 9 additional instances across 9/10 essays (trace_05 excluded) \u2014 this rhythmic pattern is near-universal across the corpus.",
+    "count": 11,
+    "example_ids": [
+      "trace_03",
+      "trace_04",
+      "trace_01",
+      "trace_02",
+      "trace_03",
+      "trace_04",
+      "trace_06",
+      "trace_07",
+      "trace_08",
+      "trace_09",
+      "trace_10"
+    ],
+    "example_quotes": [
+      "The result reframes who gets to build. Professors, programme managers, tech leads and students all become authors rather than petitioners...",
+      "The strategic ambition is larger. By pushing open source and abstraction, we intend workflows to become a new layer that commoditises the models beneath them...",
+      "What distinguishes this approach is the unit of analysis. We evaluate the AI workflow \u2014 a human-readable chain of prompts, abstracted model calls, retrieval documents and tool calls, paired with use-case-specific \"golden\" input and output datasets \u2014 rather than an abstract model score.",
+      "The foundation is abstraction. We reduce AI systems to workflows \u2014 human-readable chains of prompts, abstracted model calls, retrieval documents and tool calls \u2014 so that the model itself becomes a swappable component.",
+      "Deployment matters just as much as authoring. A workflow can ship instantly to the channels the Global South actually uses \u2014 WhatsApp, Telegram, Facebook, SMS, voice and web \u2014 so usability testing happens with real users, in real languages, in days rather than months.",
+      "Gooey.AI inverts that relationship. We abstract everything into AI workflow recipes: small, collaborative artefacts combining LLM prompts, chained model calls, tool calls and code snippets, RAG documents, analytics, and use-case-specific golden evaluation datasets.",
+      "The method is deliberately hands-on. Through public prompt-a-thons and workshops held in Bangalore, Delhi and beyond, participants probe model behaviour, document what they find, and contribute toward more inclusive datasets and tools.",
+      "Openness at Gooey operates at three levels. The first is the codebase \u2014 inspectable, deployable and forkable, which means an organisation that adopts us cannot be locked out of what it has built.",
+      "The composition matters. A team of only engineers would have built a developer tool; a team of only impact practitioners would have built a report.",
+      "Rigour matters as much as reach. Our agricultural advisory evaluation work is published at gooey.ai/ageval, built on golden evaluation datasets developed with partner organisations who supply grounded, real-world scenarios.",
+      "Mental health is an unforgiving test case. Advice must be safe, culturally legible and delivered in the user's own language, often through a phone rather than a clinic."
+    ]
+  },
+  {
+    "name": "Jargon / technical density overload",
+    "description": "Sentences packed with technical/domain jargon (workflow recipes, RAG documents, golden evaluation datasets, etc.) back-to-back, making the sentence hard to process even when grammatically fine. Background scan confirmed 5 instances across traces 01, 02, 03, 04 and 08.",
+    "count": 5,
+    "example_ids": [
+      "trace_04",
+      "trace_02",
+      "trace_03",
+      "trace_08"
+    ],
+    "example_quotes": [
+      "We abstract everything into AI workflow recipes: small, collaborative artefacts combining LLM prompts, chained model calls, tool calls and code snippets, RAG documents, analytics, and use-case-specific golden evaluation datasets.",
+      "human-readable chains of prompts, abstracted model calls, retrieval documents and tool calls \u2014 so that the model itself becomes a swappable component",
+      "a small, human-readable chain of prompts, abstracted model calls, retrieval documents and tool calls, assembled and edited in plain language rather than code",
+      "leads the engineering behind the orchestration layer: the abstraction that turns model calls, retrieval and tool use into human-readable recipes"
+    ]
+  },
+  {
+    "name": "Excessive enumeration / list overload",
+    "description": "Long lists of proper nouns or categories crammed into one clause (e.g. naming 8 model vendors in a row) \u2014 cognitively overloads the reader rather than making a point. Background scan found 29 total occurrences across 9/10 essays (all but trace_08) \u2014 near-universal.",
+    "count": 3,
+    "example_ids": [
+      "trace_04",
+      "trace_03"
+    ],
+    "example_quotes": [
+      "OpenAI, Google, Anthropic \u2014 alongside the strongest open-weight alternatives from India, Europe and China, including Mistral, SwissAI, Qwen, Kimi and DeepSeek",
+      "adopt whichever is smarter, faster, cheaper, cleaner or more sovereign this month",
+      "read, understood, forked and improved"
+    ]
+  },
+  {
+    "name": "Rule-of-three phrasing (verb/adjective triplets)",
+    "description": "A tight triplet of parallel verbs or adjectives (e.g. \"photographed, published and captioned\") \u2014 the classic AI-writing rule-of-three cadence, distinct from longer list overload. Background scan found 20 additional instances across 9/10 essays (only trace_03 has none) \u2014 this is a near-universal tic across the whole corpus.",
+    "count": 24,
+    "example_ids": [
+      "trace_06",
+      "trace_06",
+      "trace_06",
+      "trace_06",
+      "trace_01",
+      "trace_01",
+      "trace_02",
+      "trace_02",
+      "trace_02",
+      "trace_02",
+      "trace_04",
+      "trace_05",
+      "trace_06",
+      "trace_06",
+      "trace_06",
+      "trace_07",
+      "trace_08",
+      "trace_08",
+      "trace_08",
+      "trace_09",
+      "trace_09",
+      "trace_10",
+      "trace_10",
+      "trace_10"
+    ],
+    "example_quotes": [
+      "photographed, published and captioned",
+      "cultural institutions, museums and universities ... art, heritage and creative control (two noun triplets in one sentence)",
+      "shared workflows, evidence and creative work",
+      "art, heritage and creative control.",
+      "India, Europe and China",
+      "OpenAI, Google, Anthropic",
+      "Ministries, universities and impact organisations",
+      "OpenAI, Google or Anthropic",
+      "HIPAA, GDPR and SOC 2 Type II",
+      "inspect, verify and, if necessary, exercise",
+      "OpenAI, Google, Anthropic",
+      "impact, usage and NPS",
+      "gender, caste and race",
+      "probe model behaviour, document what they find, and contribute toward more inclusive datasets and tools",
+      "cultural institutions, museums and universities",
+      "inspectable, deployable and forkable",
+      "Code, Culture and the Field",
+      "deep technical depth, creative and cultural practice, and genuine familiarity with frontline constraints",
+      "model calls, retrieval and tool use",
+      "grounded evals, local languages, frontline channels",
+      "develop excellent public workflows with partners in one field, prove resonance and monetisation, then extend the pattern",
+      "safe, culturally legible and delivered in the user's own language",
+      "find, fork and adapt",
+      "model-agnosticism, sovereign deployment options and cultural work"
+    ]
+  },
+  {
+    "name": "Unverifiable / questionable factual claims about people",
+    "description": "Specific biographical claims about named individuals (e.g. \"has been building AI bots for more than twenty years\") that read as confident but are not backed by verified source material \u2014 this essay itself admits \"assembled from public pages... please check titles and Dev's background, which was thin online,\" yet the claim reads with full confidence in the body text. Background scan found all instances confined to trace_08 (the team bios essay) \u2014 6 total claims about named individuals.",
+    "count": 6,
+    "example_ids": [
+      "trace_08",
+      "trace_08",
+      "trace_08",
+      "trace_08",
+      "trace_08",
+      "trace_08"
+    ],
+    "example_quotes": [
+      "Sean Blagsvedt, Founder and CEO, has been building AI bots for more than twenty years",
+      "Steve Carver serves as Chief Revenue Officer. (flagged as possibly outdated)",
+      "He remains an active builder on the platform rather than an absent executive, with 175 public workflows and nearly 50,000 runs to his name.",
+      "Archana Prasad, Founder and Chief Creative Officer, comes from the cultural sector rather than enterprise software.",
+      "A design researcher and previously COO at Dara.network and Founder Director of Jaaga and BeFantastic",
+      "Dev Aggarwal, Co-founder and CTO, leads the engineering behind the orchestration layer: the abstraction that turns model calls, retrieval and tool use into human-readable recipes."
+    ]
+  },
+  {
+    "name": "Conjunction-initial sentence opening (And/But)",
+    "description": "A sentence begins with a coordinating conjunction (\"And ...\", \"But ...\") used as a rhetorical device \u2014 reads as grammatically informal/incorrect for formal essay register. Background scan confirmed this is an isolated instance \u2014 only 1 occurrence in the whole 10-essay corpus (trace_06).",
+    "count": 1,
+    "example_ids": [
+      "trace_06"
+    ],
+    "example_quotes": [
+      "And ..."
+    ]
+  }
+]

@@ -1,0 +1,607 @@
+{
+  "trace_01": [
+    {
+      "id": "a_1789412069740_757",
+      "start": 123,
+      "end": 190,
+      "quote": "n artificial intelligence today is not capability \u2014 it is coverage.",
+      "note": "Not X, Y framing. this is a dead giveaway of AI writing. Avoid",
+      "created_at": "2026-09-14T18:54:29.740Z",
+      "axial_code": "X-not-Y contrastive framing (AI writing tell)"
+    },
+    {
+      "id": "a_1789412082611_529",
+      "start": 541,
+      "end": 875,
+      "quote": "Because our platform aggregates both leading private models \u2014 OpenAI, Google, Anthropic \u2014 and the strongest open-weight alternatives from India, Europe and China, including Mistral, SwissAI, Qwen, Kimi and DeepSeek, we can benchmark competing model families on an identical task, in an identical language, against an identical rubric.",
+      "note": "extremely long sentence. it's not readable",
+      "created_at": "2026-09-14T18:54:42.611Z",
+      "axial_code": "Run-on / overlong sentences"
+    },
+    {
+      "id": "a_1789412096504_608",
+      "start": 1825,
+      "end": 1826,
+      "quote": "\u2014",
+      "note": "frequent use of em dashes. AI giveaway",
+      "created_at": "2026-09-14T18:54:56.504Z",
+      "axial_code": "Punctuation inconsistency in rhetorical question chains"
+    },
+    {
+      "id": "a_1789412114679_164",
+      "start": 1150,
+      "end": 1216,
+      "quote": "rompts, abstracted model calls, retrieval documents and tool calls",
+      "note": "lot of jargon and its a very long list",
+      "created_at": "2026-09-14T18:55:14.679Z",
+      "axial_code": "Jargon / technical density overload"
+    },
+    {
+      "id": "a_1789412128274_296",
+      "start": 1525,
+      "end": 1526,
+      "quote": ":",
+      "note": "too much usage of colon. avoid",
+      "created_at": "2026-09-14T18:55:28.274Z",
+      "axial_code": "Punctuation inconsistency in rhetorical question chains"
+    },
+    {
+      "id": "a_1789412149128_181",
+      "start": 1035,
+      "end": 1322,
+      "quote": "What distinguishes this approach is the unit of analysis. We evaluate the AI workflow \u2014 a human-readable chain of prompts, abstracted model calls, retrieval documents and tool calls, paired with use-case-specific \"golden\" input and output datasets \u2014 rather than an abstract model score. ",
+      "note": "small sentence followed by a really long sentence",
+      "created_at": "2026-09-14T18:55:49.128Z",
+      "axial_code": "Staccato-then-sprawl sentence rhythm"
+    },
+    {
+      "id": "a_1789412163162_779",
+      "start": 1635,
+      "end": 1874,
+      "quote": "This work is grounded in deployment rather than laboratory conditions. Gooey.AI supports over 1,500 languages and has served 1.5 million users through WhatsApp, Telegram, SMS, voice and web \u2014 the channels frontline communities actually use",
+      "note": "small sentence followed by very long sentence",
+      "created_at": "2026-09-14T18:56:03.162Z",
+      "axial_code": "Staccato-then-sprawl sentence rhythm"
+    },
+    {
+      "id": "a_1789412171936_589",
+      "start": 2356,
+      "end": 2367,
+      "quote": "\u2248310 words.",
+      "note": "word count exceeded",
+      "created_at": "2026-09-14T18:56:11.936Z",
+      "axial_code": "Word count exceeds requested limit"
+    },
+    {
+      "id": "a_1789417175710_833",
+      "start": 679,
+      "end": 702,
+      "quote": "India, Europe and China",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:19:35.710Z"
+    },
+    {
+      "id": "a_1789417216622_285",
+      "start": 1123,
+      "end": 1282,
+      "quote": "a human-readable chain of prompts, abstracted model calls, retrieval documents and tool calls, paired with use-case-specific \"golden\" input and output datasets",
+      "note": "[Jargon / technical density overload] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.622Z"
+    },
+    {
+      "id": "a_1789417216634_916",
+      "start": 603,
+      "end": 628,
+      "quote": "OpenAI, Google, Anthropic",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.634Z"
+    }
+  ],
+  "trace_02": [
+    {
+      "id": "a_1789410033076_397",
+      "start": 1315,
+      "end": 1366,
+      "quote": "in-country, on-premise and airgapped server support",
+      "note": "power of 3 - again is an AI giveaway. avoid",
+      "created_at": "2026-09-14T18:20:33.076Z",
+      "axial_code": "Rule-of-three phrasing (verb/adjective triplets)"
+    },
+    {
+      "id": "a_1789410044934_579",
+      "start": 1584,
+      "end": 1644,
+      "quote": "Digital Public Good with the Digital Public Goods Alliance. ",
+      "note": "duplicating words, can be more concise",
+      "created_at": "2026-09-14T18:20:44.934Z",
+      "axial_code": "Redundant / circular phrasing"
+    },
+    {
+      "id": "a_1789410055697_861",
+      "start": 1808,
+      "end": 1855,
+      "quote": "very prompt, model, retrieval database and cost",
+      "note": "too much enumeration",
+      "created_at": "2026-09-14T18:20:55.697Z",
+      "axial_code": "Excessive enumeration / list overload"
+    },
+    {
+      "id": "a_1789410067118_806",
+      "start": 248,
+      "end": 553,
+      "quote": "inistries, universities and impact organisations across the Global South and Europe increasingly share a concern: they do not want their data, or their inference spending, leaving their borders \u2014 and they do not want a change in geopolitics to sever access to tools their frontline services now depend on.",
+      "note": "extremely long sentence",
+      "created_at": "2026-09-14T18:21:07.118Z",
+      "axial_code": "Run-on / overlong sentences"
+    },
+    {
+      "id": "a_1789417112593_967",
+      "start": 714,
+      "end": 863,
+      "quote": "human-readable chains of prompts, abstracted model calls, retrieval documents and tool calls \u2014 so that the model itself becomes a swappable component",
+      "note": "[Jargon / technical density overload] accepted suggestion",
+      "created_at": "2026-09-14T20:18:32.593Z"
+    },
+    {
+      "id": "a_1789417189030_926",
+      "start": 247,
+      "end": 296,
+      "quote": "Ministries, universities and impact organisations",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:19:49.030Z"
+    },
+    {
+      "id": "a_1789417194135_588",
+      "start": 1959,
+      "end": 2002,
+      "quote": "inspect, verify and, if necessary, exercise",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:19:54.135Z"
+    },
+    {
+      "id": "a_1789417216637_288",
+      "start": 903,
+      "end": 930,
+      "quote": "OpenAI, Google or Anthropic",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.637Z"
+    },
+    {
+      "id": "a_1789417216638_945",
+      "start": 1274,
+      "end": 1303,
+      "quote": "HIPAA, GDPR and SOC 2 Type II",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.638Z"
+    }
+  ],
+  "trace_04": [
+    {
+      "id": "a_1789410098917_237",
+      "start": 2175,
+      "end": 2186,
+      "quote": "\u2248310 words.",
+      "note": "I want 300 words. word length exceeded",
+      "created_at": "2026-09-14T18:21:38.917Z",
+      "axial_code": "Word count exceeds requested limit"
+    },
+    {
+      "id": "a_1789410150350_297",
+      "start": 160,
+      "end": 242,
+      "quote": "Most organisations do not have a model problem. They have an orchestration problem",
+      "note": "not X, Y framing",
+      "created_at": "2026-09-14T18:22:30.350Z",
+      "axial_code": "X-not-Y contrastive framing (AI writing tell)"
+    },
+    {
+      "id": "a_1789410159528_606",
+      "start": 283,
+      "end": 353,
+      "quote": "wiring prompts, retrieval, tool calls, channels, analytics and billing",
+      "note": "too many enumeration",
+      "created_at": "2026-09-14T18:22:39.528Z",
+      "axial_code": "Excessive enumeration / list overload"
+    },
+    {
+      "id": "a_1789410173057_25",
+      "start": 545,
+      "end": 885,
+      "quote": "Gooey.AI inverts that relationship. We abstract everything into AI workflow recipes: small, collaborative artefacts combining LLM prompts, chained model calls, tool calls and code snippets, RAG documents, analytics, and use-case-specific golden evaluation datasets. The model is a parameter inside the recipe, not the foundation beneath it.",
+      "note": "small sentence followed by an extremely large one",
+      "created_at": "2026-09-14T18:22:53.057Z",
+      "axial_code": "Excessive enumeration / list overload"
+    },
+    {
+      "id": "a_1789410181803_993",
+      "start": 1012,
+      "end": 1222,
+      "quote": "Our platform aggregates the best private models \u2014 OpenAI, Google, Anthropic \u2014 alongside the strongest open-weight alternatives from India, Europe and China, including Mistral, SwissAI, Qwen, Kimi and DeepSeek. ",
+      "note": "too much enumeration",
+      "created_at": "2026-09-14T18:23:01.803Z",
+      "axial_code": "Excessive enumeration / list overload"
+    },
+    {
+      "id": "a_1789410190501_810",
+      "start": 1439,
+      "end": 1473,
+      "quote": "smarter, faster, cheaper, cleaner ",
+      "note": "too much enumeration",
+      "created_at": "2026-09-14T18:23:10.501Z",
+      "axial_code": "Excessive enumeration / list overload"
+    },
+    {
+      "id": "a_1789410200973_444",
+      "start": 1905,
+      "end": 2173,
+      "quote": "y pushing open source and abstraction, we intend workflows to become a new layer that commoditises the models beneath them \u2014 and, through our open-source vision and AI workflow standards work, to commoditise the runtime itself, for customers' benefit rather than ours.",
+      "note": "long sentence",
+      "created_at": "2026-09-14T18:23:20.973Z",
+      "axial_code": "Run-on / overlong sentences"
+    },
+    {
+      "id": "a_1789417216623_186",
+      "start": 581,
+      "end": 810,
+      "quote": "We abstract everything into AI workflow recipes: small, collaborative artefacts combining LLM prompts, chained model calls, tool calls and code snippets, RAG documents, analytics, and use-case-specific golden evaluation datasets.",
+      "note": "[Jargon / technical density overload] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.623Z"
+    },
+    {
+      "id": "a_1789417216639_36",
+      "start": 1062,
+      "end": 1087,
+      "quote": "OpenAI, Google, Anthropic",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.639Z"
+    }
+  ],
+  "trace_03": [
+    {
+      "id": "a_1789410213200_448",
+      "start": 36,
+      "end": 125,
+      "quote": "The scarcest resource in global impact work is not ambition \u2014 it is engineering capacity.",
+      "note": "not x, but y framing",
+      "created_at": "2026-09-14T18:23:33.200Z",
+      "axial_code": "X-not-Y contrastive framing (AI writing tell)"
+    },
+    {
+      "id": "a_1789410251534_694",
+      "start": 1773,
+      "end": 1828,
+      "quote": "Professors, programme managers, tech leads and students",
+      "note": "you end up forgetting the point",
+      "created_at": "2026-09-14T18:24:11.534Z",
+      "axial_code": "Run-on / overlong sentences"
+    },
+    {
+      "id": "a_1789416940464_463",
+      "start": 647,
+      "end": 742,
+      "quote": "eadable chain of prompts, abstracted model calls, retrieval documents and tool calls, assembled",
+      "note": "too much jargon",
+      "created_at": "2026-09-14T20:15:40.464Z"
+    },
+    {
+      "id": "a_1789416956132_113",
+      "start": 863,
+      "end": 901,
+      "quote": "read, understood, forked and improved ",
+      "note": "too much enumeration",
+      "created_at": "2026-09-14T20:15:56.132Z"
+    },
+    {
+      "id": "a_1789417198956_375",
+      "start": 631,
+      "end": 788,
+      "quote": "a small, human-readable chain of prompts, abstracted model calls, retrieval documents and tool calls, assembled and edited in plain language rather than code",
+      "note": "[Jargon / technical density overload] accepted suggestion",
+      "created_at": "2026-09-14T20:19:58.956Z"
+    }
+  ],
+  "trace_05": [
+    {
+      "id": "a_1789410290882_305",
+      "start": 584,
+      "end": 845,
+      "quote": "Every workflow ships with built-in dashboards covering impact, usage and NPS, so the questions a funder will eventually ask \u2014 who used this, how often, did it help, would they recommend it \u2014 are answerable from day one rather than reconstructed retrospectively.",
+      "note": "too long of a sentence and em dashes",
+      "created_at": "2026-09-14T18:24:50.882Z",
+      "axial_code": "Run-on / overlong sentences"
+    },
+    {
+      "id": "a_1789410311299_181",
+      "start": 1685,
+      "end": 1744,
+      "quote": "every prompt, model, retrieval database and cost is visible",
+      "note": "excessive enumeration",
+      "created_at": "2026-09-14T18:25:11.299Z",
+      "axial_code": "Excessive enumeration / list overload"
+    },
+    {
+      "id": "a_1789417216641_573",
+      "start": 639,
+      "end": 660,
+      "quote": "impact, usage and NPS",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.641Z"
+    }
+  ],
+  "trace_06": [
+    {
+      "id": "a_1789410325335_416",
+      "start": 612,
+      "end": 708,
+      "quote": "his is not a bug to be patched. It is a question about who participates in building the systems.",
+      "note": "not x, y framing",
+      "created_at": "2026-09-14T18:25:25.335Z",
+      "axial_code": "X-not-Y contrastive framing (AI writing tell)"
+    },
+    {
+      "id": "a_1789410337791_907",
+      "start": 837,
+      "end": 1192,
+      "quote": "Rather than treating bias as a technical parameter to be tuned by engineers, the initiative reimagines generative AI through participatory practice \u2014 bringing artists, designers, students and cultural practitioners into direct contact with the models, and asking them to interrogate how gender, caste and race are represented in what those models produce.",
+      "note": "too long of a sentence. not readable",
+      "created_at": "2026-09-14T18:25:37.791Z",
+      "axial_code": "Run-on / overlong sentences"
+    },
+    {
+      "id": "a_1789416810618_801",
+      "start": 1476,
+      "end": 1521,
+      "quote": "shared workflows, evidence and creative work ",
+      "note": "3 phrasing",
+      "created_at": "2026-09-14T20:13:30.618Z"
+    },
+    {
+      "id": "a_1789416834491_419",
+      "start": 1982,
+      "end": 1986,
+      "quote": "And ",
+      "note": "starting a sentence from And is grammatically wrong",
+      "created_at": "2026-09-14T20:13:54.491Z"
+    },
+    {
+      "id": "a_1789416842524_753",
+      "start": 2130,
+      "end": 2166,
+      "quote": " art, heritage and creative control.",
+      "note": "3 phrasing",
+      "created_at": "2026-09-14T20:14:02.524Z",
+      "axial_code": "Rule-of-three phrasing (verb/adjective triplets)"
+    },
+    {
+      "id": "a_1789417216612_508",
+      "start": 1982,
+      "end": 2166,
+      "quote": "And both establish a foothold in a market we intend to serve seriously: cultural institutions, museums and universities navigating what AI means for art, heritage and creative control.",
+      "note": "[Conjunction-initial sentence opening (And/But)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.612Z"
+    },
+    {
+      "id": "a_1789417216643_36",
+      "start": 1124,
+      "end": 1146,
+      "quote": "gender, caste and race",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.643Z"
+    },
+    {
+      "id": "a_1789417216645_862",
+      "start": 1325,
+      "end": 1428,
+      "quote": "probe model behaviour, document what they find, and contribute toward more inclusive datasets and tools",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.645Z"
+    },
+    {
+      "id": "a_1789417216646_264",
+      "start": 2054,
+      "end": 2101,
+      "quote": "cultural institutions, museums and universities",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.646Z"
+    }
+  ],
+  "trace_07": [
+    {
+      "id": "a_1789410360408_387",
+      "start": 391,
+      "end": 477,
+      "quote": "they can inspect, what they can keep, and what happens if the vendor changes its mind.",
+      "note": "list of 3",
+      "created_at": "2026-09-14T18:26:00.408Z",
+      "axial_code": "Rule-of-three phrasing (verb/adjective triplets)"
+    },
+    {
+      "id": "a_1789417216630_357",
+      "start": 621,
+      "end": 735,
+      "quote": "we are currently in certification with the Digital Public Goods Alliance to be recognised as a Digital Public Good",
+      "note": "[Redundant / circular phrasing] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.630Z"
+    },
+    {
+      "id": "a_1789417216648_731",
+      "start": 899,
+      "end": 935,
+      "quote": "inspectable, deployable and forkable",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.648Z"
+    }
+  ],
+  "trace_08": [
+    {
+      "id": "a_1789411161556_123",
+      "start": 1174,
+      "end": 1176,
+      "quote": " \u2014",
+      "note": "the em dash",
+      "created_at": "2026-09-14T18:39:21.556Z",
+      "axial_code": "Punctuation-as-crutch overuse (em-dashes, colons)"
+    },
+    {
+      "id": "a_1789411176596_85",
+      "start": 1458,
+      "end": 1503,
+      "quote": "Steve Carver serves as Chief Revenue Officer.",
+      "note": "no longer true",
+      "created_at": "2026-09-14T18:39:36.596Z",
+      "axial_code": "Unverifiable / questionable factual claims about people"
+    },
+    {
+      "id": "a_1789411197102_152",
+      "start": 1653,
+      "end": 1904,
+      "quote": "The combination of deep technical depth, creative and cultural practice, and genuine familiarity with frontline constraints is why Gooey.AI is a low-code platform serving 1,500-plus languages rather than an API for people who already know how to code.",
+      "note": "way too long. mixes up different facets that doesn't have to be combined in a single sentence",
+      "created_at": "2026-09-14T18:39:57.102Z",
+      "axial_code": "Run-on / overlong sentences"
+    },
+    {
+      "id": "a_1789417216614_682",
+      "start": 743,
+      "end": 882,
+      "quote": "He remains an active builder on the platform rather than an absent executive, with 175 public workflows and nearly 50,000 runs to his name.",
+      "note": "[Unverifiable / questionable factual claims about people] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.614Z"
+    },
+    {
+      "id": "a_1789417216615_61",
+      "start": 884,
+      "end": 999,
+      "quote": "Archana Prasad, Founder and Chief Creative Officer, comes from the cultural sector rather than enterprise software.",
+      "note": "[Unverifiable / questionable factual claims about people] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.615Z"
+    },
+    {
+      "id": "a_1789417216620_731",
+      "start": 1000,
+      "end": 1100,
+      "quote": "A design researcher and previously COO at Dara.network and Founder Director of Jaaga and BeFantastic",
+      "note": "[Unverifiable / questionable factual claims about people] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.620Z"
+    },
+    {
+      "id": "a_1789417216621_247",
+      "start": 1278,
+      "end": 1457,
+      "quote": "Dev Aggarwal, Co-founder and CTO, leads the engineering behind the orchestration layer: the abstraction that turns model calls, retrieval and tool use into human-readable recipes.",
+      "note": "[Unverifiable / questionable factual claims about people] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.621Z"
+    },
+    {
+      "id": "a_1789417216627_121",
+      "start": 1312,
+      "end": 1456,
+      "quote": "leads the engineering behind the orchestration layer: the abstraction that turns model calls, retrieval and tool use into human-readable recipes",
+      "note": "[Jargon / technical density overload] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.627Z"
+    },
+    {
+      "id": "a_1789417216653_30",
+      "start": 219,
+      "end": 246,
+      "quote": "Code, Culture and the Field",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.653Z"
+    },
+    {
+      "id": "a_1789417216654_257",
+      "start": 1672,
+      "end": 1776,
+      "quote": "deep technical depth, creative and cultural practice, and genuine familiarity with frontline constraints",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.654Z"
+    },
+    {
+      "id": "a_1789417216656_308",
+      "start": 1393,
+      "end": 1428,
+      "quote": "model calls, retrieval and tool use",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.656Z"
+    }
+  ],
+  "trace_09": [
+    {
+      "id": "a_1789411810616_414",
+      "start": 423,
+      "end": 539,
+      "quote": "low-resource language performance, low-bandwidth delivery, real economic stakes, and no tolerance for hallucination.",
+      "note": "enumeration is a lot",
+      "created_at": "2026-09-14T18:50:10.616Z",
+      "axial_code": "Excessive enumeration / list overload"
+    },
+    {
+      "id": "a_1789411823583_559",
+      "start": 924,
+      "end": 925,
+      "quote": "\u2014",
+      "note": "em dashes - very obvious AI giveaway",
+      "created_at": "2026-09-14T18:50:23.583Z",
+      "axial_code": "Punctuation-as-crutch overuse (em-dashes, colons)"
+    },
+    {
+      "id": "a_1789417216632_68",
+      "start": 1242,
+      "end": 1272,
+      "quote": "grounded, real-world scenarios",
+      "note": "[Redundant / circular phrasing] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.632Z"
+    },
+    {
+      "id": "a_1789417216658_336",
+      "start": 1905,
+      "end": 1956,
+      "quote": "grounded evals, local languages, frontline channels",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.658Z"
+    },
+    {
+      "id": "a_1789417216659_279",
+      "start": 1757,
+      "end": 1877,
+      "quote": "develop excellent public workflows with partners in one field, prove resonance and monetisation, then extend the pattern",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.659Z"
+    }
+  ],
+  "trace_10": [
+    {
+      "id": "a_1789411962696_236",
+      "start": 1839,
+      "end": 1863,
+      "quote": "small, legible, forkable",
+      "note": "power of 3",
+      "created_at": "2026-09-14T18:52:42.696Z",
+      "axial_code": "Rule-of-three phrasing (verb/adjective triplets)"
+    },
+    {
+      "id": "a_1789417216660_680",
+      "start": 558,
+      "end": 623,
+      "quote": "safe, culturally legible and delivered in the user's own language",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.660Z"
+    },
+    {
+      "id": "a_1789417216662_701",
+      "start": 1316,
+      "end": 1336,
+      "quote": "find, fork and adapt",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.662Z"
+    },
+    {
+      "id": "a_1789417216664_372",
+      "start": 1685,
+      "end": 1750,
+      "quote": "model-agnosticism, sovereign deployment options and cultural work",
+      "note": "[Rule-of-three phrasing (verb/adjective triplets)] accepted suggestion",
+      "created_at": "2026-09-14T20:20:16.664Z"
+    }
+  ]
+}
